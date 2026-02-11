@@ -1,0 +1,249 @@
+@import "../../../styles/themes/light.scss";
+@import "../../../styles/themes/mixins.scss";
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 0 1.075rem;
+
+  @media (max-width: 1184px) {
+    margin: 0;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1380px;
+    margin: 1.375rem auto;
+    padding: 0.275rem 0.575rem;
+    border-radius: 2.575rem;
+    background-color: #fff3f6;
+    box-shadow: 0 4px 24px rgba(255, 105, 180, 0.08);
+
+    @media (max-width: 1184px) {
+      margin: 0;
+      border-radius: 0;
+      padding: 0.5rem 0 0 0;
+    }
+
+    .logo {
+      .logoImg {
+        margin-top: 0.275rem;
+        width: 130px;
+        margin-left: 20px;
+
+        @media (max-width: 768px) {
+          margin-top: 0.075rem;
+        }
+      }
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ff4357;
+
+      @media (max-width: 1184px) {
+        display: block;
+        padding: 1.075rem 0.875rem;
+      }
+    }
+
+    .menuCapsule {
+      display: flex;
+      align-items: center;
+      border-radius: 2.5rem;
+      box-shadow: 0 1px 8px 0 rgba(44, 62, 80, 0.04);
+      padding: 0.8rem 1.375rem 0.8rem 1.875rem;
+
+      @media (max-width: 1184px) {
+        display: none;
+      }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 1.575rem;
+
+        .menuItem {
+          color: #222;
+          font-size: 0.875rem;
+          line-height: 1.625rem;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .drawerBackdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 32, 38, 0.32);
+      z-index: 9998;
+      opacity: 1;
+      transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: all;
+    }
+
+    .drawerBackdropHidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      max-width: 100vw;
+      background: #fff;
+      z-index: 9999;
+      box-shadow: -2px 0 16px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      animation: slideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0;
+      height: 100vh;
+
+      @media (max-width: 1184px) {
+        width: 70vw;
+        max-width: 420px;
+      }
+
+      @media (max-width: 600px) {
+        width: 70vw;
+        max-width: 420px;
+      }
+
+      &.drawerClosing {
+        animation: slideOut 0.22s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      .drawerHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+        border-bottom: 1px solid #f0f0f0;
+
+        .drawerLogo {
+          .drawerLogoImg {
+            width: 120px;
+          }
+        }
+
+        .closeBtn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.5rem;
+        }
+      }
+
+      .drawerMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem 1.5rem 0 1.5rem;
+        flex: 1 1 auto;
+        min-height: 0;
+
+        .drawerLinks {
+          display: flex;
+          flex-direction: column;
+          gap: 1.1rem;
+          width: 100%;
+          margin-bottom: 1.2rem;
+
+          .menuItem {
+            color: #222;
+            font-size: 1.13rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.2rem 0;
+            transition: color 0.18s;
+
+            &:hover {
+              color: #ec4e74;
+            }
+          }
+        }
+      }
+
+      .drawerFooter {
+        width: 100%;
+        padding: 0 1.5rem 1.2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.1rem;
+
+        .drawerSocials {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 0.5rem;
+
+          .drawerSocialItem {
+            transition: color 0.18s;
+
+            &:hover {
+              color: #ec4e74;
+            }
+          }
+        }
+
+        .drawerCopyright {
+          text-align: center;
+          color: #4b4b5a;
+          font-weight: 500;
+          font-size: 0.98rem;
+          margin-bottom: 0.2rem;
+        }
+
+        .drawerButtonWrap {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 0.2rem;
+
+          button {
+            width: 90%;
+            max-width: 320px;
+            font-size: 1.08rem;
+          }
+        }
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(100%);
+      }
+    }
+  }
+}

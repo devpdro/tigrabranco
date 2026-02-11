@@ -1,0 +1,126 @@
+.partners {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  overflow: hidden; /* Prevent horizontal scroll on page */
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    @media (min-width: 768px) {
+      padding: 0 2rem;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+      }
+    }
+
+    .label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 400;
+      white-space: nowrap;
+      text-transform: none;
+      letter-spacing: normal;
+      flex-shrink: 0; /* Prevent label from shrinking */
+    }
+
+    .carousel-container {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+
+      /* Mask effect for fade out on edges */
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+      );
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 5%,
+        black 95%,
+        transparent
+      );
+
+      @media (min-width: 1024px) {
+        /* On desktop, only fade the right side or keep it clean based on design. 
+           Reference image seems clean, but mask helps with 'cut off' look */
+        mask-image: linear-gradient(to right, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(
+          to right,
+          black 80%,
+          transparent 100%
+        );
+      }
+    }
+
+    .track {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      width: max-content;
+      animation: scroll 40s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+
+    .logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 32px;
+      flex-shrink: 0;
+
+      /* Grayscale effect */
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        max-width: 120px;
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      -50%
+    ); /* Moves half the width (the length of one original set) */
+  }
+}

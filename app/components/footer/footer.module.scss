@@ -1,0 +1,140 @@
+.footer {
+  width: 100%;
+  background-color: #ffffff;
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.075rem;
+
+    @media (min-width: 768px) {
+      padding: 0 2.075rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(
+        2,
+        1fr
+      );
+      gap: 3rem;
+      margin-bottom: 4rem;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 2rem;
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        grid-column: span 2; // Ocupa largura total no mobile
+
+        @media (min-width: 768px) {
+          grid-column: span 6 / span 6;
+        }
+
+        .link {
+          display: inline-block;
+          margin-bottom: 2rem;
+
+          .image {
+            object-fit: contain;
+          }
+        }
+      }
+
+      .nav {
+        display: flex;
+        flex-direction: column;
+        grid-column: span 1; // Cada nav ocupa 1 coluna no mobile
+
+        @media (min-width: 768px) {
+          grid-column: span 3 / span 3;
+        }
+
+        // Para empurrar o conteúdo para o fundo se necessário
+        &.last {
+          // justify-content: space-between; // REMOVIDO para corrigir layout
+        }
+
+        .heading {
+          color: #000000;
+          font-weight: 500;
+          margin-bottom: 1.5rem;
+        }
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            .link {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: #000000;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 20px;
+              transition: opacity 200ms;
+              text-decoration: none;
+
+              &:hover {
+                opacity: 0.7;
+              }
+
+              .badge {
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                padding: 0.125rem 0.5rem;
+                border-radius: 9999px;
+                font-size: 10px;
+                line-height: 20px;
+                font-weight: 400;
+                background-color: rgba(2, 166, 87, 0.1);
+                color: #02a657;
+                text-transform: uppercase;
+                letter-spacing: 0.025em;
+              }
+            }
+          }
+        }
+
+        .anbima {
+          margin-top: 2rem;
+
+          @media (min-width: 768px) {
+            margin-top: auto; // Empurra para o fundo no desktop se o container tiver altura
+          }
+        }
+      }
+    }
+
+    .legal {
+      border-top: 1px solid #e1e1e4;
+      padding: 3.575rem 0 2.075rem 0;
+
+      .text {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        color: rgb(130, 139, 156);
+
+        p {
+          margin-bottom: 1rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
