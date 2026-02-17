@@ -1,0 +1,103 @@
+
+
+.securitizationSection {
+  width: 100%;
+  background-color: #050505; /* Very dark background matching 'Meet Genius' */
+  padding: 6rem 0;
+  color: #ffffff;
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @media (min-width: 768px) {
+      padding: 0 2rem;
+    }
+  }
+
+  .header {
+    max-width: 600px;
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      @media (min-width: 768px) {
+        font-size: 3.5rem;
+      }
+    }
+
+    .description {
+      font-size: 1.125rem;
+      color: #94a3b8; /* Slate 400 */
+      line-height: 1.6;
+    }
+  }
+
+  .cardGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+
+    /* Mimicking the card style from reference */
+    .featureCard {
+      background-color: #0f1011; /* Slightly lighter than bg */
+      border: 1px solid #1e293b;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.3s ease;
+
+      &:hover {
+        border-color: #334155;
+      }
+
+      .imageWrapper {
+        width: 100%;
+        padding: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at center, rgba(2, 166, 87, 0.05) 0%, transparent 70%); /* Subtle green glow */
+
+        .diagramImage {
+          width: 100%;
+          height: auto;
+          max-width: 800px; /* Limit width to keep it sharp */
+          object-fit: contain;
+        }
+      }
+
+      .cardContent {
+        padding: 2rem;
+        border-top: 1px solid #1e293b;
+        background-color: #0a0a0a;
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #f8fafc;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #64748b;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}

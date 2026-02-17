@@ -1,0 +1,27 @@
+.wrapper {
+  display: inline;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.text {
+  display: inline;
+  position: relative;
+  z-index: 1;
+  color: inherit;
+}
+
+.underline {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  pointer-events: none;
+  overflow: visible;
+}
+

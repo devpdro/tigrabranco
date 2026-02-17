@@ -1,120 +1,119 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import styles from "./faq.module.scss";
 
-interface FaqItem {
-  title: string;
-  content: string;
-}
-
-const items: FaqItem[] = [
+const faqItems = [
   {
-    title: "Como funciona a antecipação de recebíveis via securitização?",
-    content:
-      "A securitização transforma seus recebíveis a prazo (duplicatas, cheques, contratos) em capital imediato. Cedemos esses direitos creditórios à securitizadora mediante um deságio, permitindo que sua empresa receba à vista o que só entraria no caixa no futuro, sem criar endividamento bancário.",
+    id: 1,
+    question: "O que é uma Securitizadora e como ela funciona?",
+    answer:
+      "Uma Securitizadora é uma instituição financeira autorizada pela CVM que transforma ativos (como recebíveis, contratos e créditos) em títulos negociáveis no mercado de capitais. Ela funciona adquirindo esses ativos de empresas, criando uma estrutura jurídica segura e emitindo títulos lastreados nesses ativos, permitindo que investidores financiem operações de forma segura e regulamentada.",
   },
   {
-    title: "Quais são os requisitos para operar com a securitizadora?",
-    content:
-      "Atendemos pessoas jurídicas com faturamento consistente e carteira de recebíveis performada. É necessário apresentar o contrato social, documentos dos sócios e balanços recentes para análise de crédito e definição de limite operacional personalizado.",
+    id: 2,
+    question: "Quais são os benefícios de trabalhar com uma Securitizadora?",
+    answer:
+      "Os principais benefícios incluem: acesso a capital de forma mais rápida e eficiente, taxas competitivas comparadas a outras modalidades de crédito, segurança jurídica através de estruturas regulamentadas pela CVM, diversificação de fontes de financiamento, melhoria do fluxo de caixa através da antecipação de recebíveis, e possibilidade de estruturar operações customizadas para diferentes necessidades do negócio.",
   },
   {
-    title: "Quais as taxas e prazos praticados nas operações?",
-    content:
-      "Nossas taxas são competitivas e definidas caso a caso, baseadas no risco sacado e no prazo médio da carteira. Não cobramos TAC (Tarifa de Abertura de Crédito) ou IOF nas operações de fomento mercantil, garantindo um Custo Efetivo Total otimizado para sua empresa.",
+    id: 3,
+    question: "Quanto tempo leva para estruturar uma operação de securitização?",
+    answer:
+      "Com nossa estrutura já pronta e processos otimizados, é possível estruturar uma operação em até 3 dias ou menos. O tempo pode variar conforme a complexidade da operação, volume de ativos e necessidade de customização, mas nossa equipe trabalha de forma ágil para garantir agilidade sem comprometer a segurança jurídica e a qualidade da estruturação.",
   },
   {
-    title: "É necessário oferecer garantias reais?",
-    content:
-      "Na maioria das operações de antecipação de recebíveis, o próprio título de crédito serve como lastro. Em operações estruturadas ou de maior volume, podemos solicitar garantias adicionais (como aval ou garantia real) para viabilizar taxas ainda mais atrativas.",
+    id: 4,
+    question: "Quais tipos de ativos podem ser securitizados?",
+    answer:
+      "Podemos securitizar diversos tipos de ativos, incluindo: recebíveis de vendas a prazo, contratos de prestação de serviços, créditos de cartão de crédito, contratos de aluguel, fluxos de caixa futuros, debêntures, notas comerciais e outros créditos que gerem fluxo de pagamento futuro. Nossa equipe avalia cada caso para determinar a viabilidade e a melhor estrutura para cada tipo de ativo.",
   },
   {
-    title: "Qual a documentação necessária para o cadastro inicial?",
-    content:
-      "Para agilidade na aprovação, solicitamos: Contrato Social e alterações, Cartão CNPJ, RG e CPF dos sócios, Faturamento dos últimos 12 meses e Balanço Patrimonial/DRE recentes. Todo o processo de envio é digital e seguro.",
-  },
-  {
-    title: "Qual a diferença entre securitização e empréstimo bancário?",
-    content:
-      "Diferente do empréstimo, que gera uma dívida no passivo da empresa, a securitização é uma venda de ativos. Isso melhora seus índices de liquidez no balanço, não consome seu limite bancário e não incide IOF, sendo uma ferramenta estratégica para gestão de fluxo de caixa.",
-  },
-  {
-    title: "Como é o processo de liberação de crédito e segurança?",
-    content:
-      "Após a análise e formalização digital da cessão (com assinatura eletrônica), o pagamento é realizado via TED no mesmo dia para operações aprovadas até determinado horário. Todas as transações seguem rigorosos protocolos de compliance e segurança de dados.",
+    id: 5,
+    question: "Como é garantida a segurança jurídica das operações?",
+    answer:
+      "A segurança jurídica é garantida através de: estruturação conforme regulamentação da CVM, separação patrimonial dos ativos (isolamento de risco), auditorias e due diligence rigorosos, contratos padronizados e revisados por equipe jurídica especializada, acompanhamento contínuo das operações, e compliance com todas as normas do mercado de capitais brasileiro. Nossa estrutura é desenhada para proteger tanto os originadores quanto os investidores.",
   },
 ];
 
-export function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+export function FAQ() {
+  const [openItems, setOpenItems] = useState<number[]>([]);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleItem = (id: number) => {
+    setOpenItems((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
   };
 
   return (
-    <section className="w-full py-14 px-8 flex justify-center bg-transparent box-border max-md:py-8 max-md:px-5">
-      <div className="w-full max-w-[1280px]">
-        <header className="mb-8 max-md:mb-6">
-          <h2 className="m-0 text-[44px] leading-[1.1] font-normal text-[#f9fafb] max-md:text-[32px]">
-            Soluções financeiras estruturadas para alavancar seu negócio
-          </h2>
-          <p className="mt-2 text-[28px] leading-[1.2] font-normal text-[#f9fafb] max-md:text-[22px]">
-            Expertise em securitização para transformar ativos em liquidez
-            imediata
-          </p>
-        </header>
+    <section ref={ref} className={styles.faq}>
+      <div className={styles.container}>
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className={styles.label}>FAQs</span>
+          <h2 className={styles.title}>Perguntas Frequentes</h2>
+        </motion.div>
 
-        <div className="mt-8 flex flex-col gap-3 max-md:mt-6">
-          {items.map((item, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <article
-                key={index}
-                onClick={() => toggle(index)}
-                className={cn(
-                  "bg-white rounded-2xl p-5 cursor-pointer transition-all duration-150 ease-in-out border border-[#e5e7eb] shadow-sm hover:bg-[#f9fafb] hover:border-[#d1d5db]",
-                  isOpen && "bg-[#f9fafb] shadow-md border-[#d1d5db]",
-                )}
+        <div className={styles.accordion}>
+          {faqItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              className={styles.faqItem}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: 0.1 + index * 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <button
+                className={styles.questionButton}
+                onClick={() => toggleItem(item.id)}
+                aria-expanded={openItems.includes(item.id)}
+                aria-controls={`answer-${item.id}`}
               >
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="m-0 text-base font-medium text-[#1a1a1a] max-md:text-[15px]">
-                    {item.title}
-                  </h3>
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    aria-label="Alternar resposta"
-                    className="flex items-center justify-center text-[#1a1a1a]"
-                  >
-                    <ChevronDown
-                      className={cn(
-                        "w-5 h-5 transition-transform duration-200",
-                        isOpen && "rotate-180",
-                      )}
-                    />
-                  </button>
-                </div>
-
-                <div
-                  className={cn(
-                    "grid transition-[grid-template-rows] duration-200 ease-in-out",
-                    isOpen ? "grid-rows-[1fr] mt-3" : "grid-rows-[0fr]",
-                  )}
+                <span className={styles.question}>{item.question}</span>
+                <motion.div
+                  className={styles.chevron}
+                  animate={{
+                    rotate: openItems.includes(item.id) ? 180 : 0,
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  <div className="overflow-hidden">
-                    <p className="text-[#4b5563] text-[15px] leading-relaxed">
-                      {item.content}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+                  <ChevronDown size={20} />
+                </motion.div>
+              </button>
+
+              <AnimatePresence>
+                {openItems.includes(item.id) && (
+                  <motion.div
+                    id={`answer-${item.id}`}
+                    className={styles.answerWrapper}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <div className={styles.answer}>{item.answer}</div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+

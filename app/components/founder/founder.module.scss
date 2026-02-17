@@ -1,0 +1,143 @@
+.founder {
+  width: 100%;
+  padding: 4rem 0 4rem 0;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    padding: 0 1.075rem;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.label {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: rgb(136, 152, 180);
+  margin-bottom: 1.075rem;
+  background-color: transparent;
+}
+
+.title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.875rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+
+  @media (min-width: 640px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+    line-height: 62px;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    gap: 48px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  background-color: #f8fafb;
+
+  @media (max-width: 768px) {
+    order: 1;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    order: 2;
+    gap: 16px;
+  }
+}
+
+.paragraph {
+  font-family: "Helvetica Now Text", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  strong {
+    color: #0f172a;
+    font-weight: 600;
+  }
+}

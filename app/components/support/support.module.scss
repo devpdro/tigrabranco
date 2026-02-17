@@ -1,7 +1,6 @@
 .support {
   width: 100%;
-  background-color: #ffffff;
-  padding: 6rem 0;
+  padding: 4rem 0 4rem 0;
 
   .container {
     max-width: 1280px;
@@ -9,7 +8,7 @@
     padding: 0 1.5rem;
 
     @media (min-width: 768px) {
-      padding: 0 2rem;
+      padding: 0 1.075rem;
     }
 
     .header {
@@ -27,32 +26,61 @@
         padding: 0.35rem 1rem;
         border: 1px solid #e2e8f0;
         border-radius: 9999px;
-        font-size: 0.65rem;
-        font-weight: 600;
+        font-size: 10px;
+        font-weight: 500;
         letter-spacing: 0.05em;
+        line-height: 20px;
         text-transform: uppercase;
-        color: #64748b;
-        margin-bottom: 2rem;
+        color: rgb(136, 152, 180);
+        margin-bottom: 1.075rem;
         background-color: transparent;
       }
 
       .title {
         font-size: 2.25rem;
-        line-height: 1.1;
+        line-height: 1.2;
         font-weight: 500;
         color: #0f172a;
         letter-spacing: -0.02em;
+        margin-bottom: 0.875rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+
+        @media (min-width: 640px) {
+          font-size: 3rem;
+        }
 
         @media (min-width: 768px) {
           font-size: 3.5rem;
+          line-height: 62px;
         }
+
+        .title-line {
+          display: inline;
+
+          @media (min-width: 768px) {
+            display: block;
+          }
+
+          &:not(:last-child)::after {
+            content: " ";
+          }
+        }
+      }
+
+      .handWritten {
+        position: relative;
+        display: inline-block;
+        color: #02a657;
+        font-weight: 600;
       }
     }
 
     .grid {
       display: grid;
       grid-template-columns: 1fr;
-      
+
       @media (min-width: 1024px) {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -66,7 +94,7 @@
 
         @media (min-width: 1024px) {
           padding: 0 2.5rem;
-          
+
           &:not(:last-child) {
             border-right: 1px solid #f1f5f9;
           }
@@ -75,12 +103,29 @@
         .icon-wrapper {
           margin-bottom: 1.5rem;
           color: #64748b;
-          
+
           svg {
             stroke-width: 1.5px;
             width: 32px;
             height: 32px;
+            animation: float 3s ease-in-out infinite;
+            will-change: transform;
           }
+        }
+
+        &:nth-of-type(1) .icon-wrapper svg {
+          animation-name: float-vertical;
+          animation-delay: 0s;
+        }
+
+        &:nth-of-type(2) .icon-wrapper svg {
+          animation-name: float-rotate;
+          animation-delay: 0.5s;
+        }
+
+        &:nth-of-type(3) .icon-wrapper svg {
+          animation-name: float-sway;
+          animation-delay: 1s;
         }
 
         .card-title {
@@ -100,5 +145,44 @@
         }
       }
     }
+  }
+}
+
+@keyframes float-vertical {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-rotate {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+@keyframes float-sway {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-6px) translateX(2px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(0px);
+  }
+  75% {
+    transform: translateY(-6px) translateX(-2px);
   }
 }

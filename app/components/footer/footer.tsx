@@ -2,14 +2,46 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/app/assets/images/LOGO.png";
+import Logo from "@/app/assets/images/LOGO_PRETO.png";
 import Anbima from "@/app/assets/images/ANBIMA_SECURITIZADORA.svg";
+
+import { Button } from "@/app/components/form";
 
 import S from "./footer.module.scss";
 
-export function Footer() {
+interface FooterProps {
+  openContact?: () => void;
+}
+
+export function Footer({ openContact }: FooterProps) {
+  const whatsappLink =
+    "https://wa.me/5514991370807?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+
   return (
     <footer className={S.footer}>
+      <div className={S.transitionSection}>
+        <div className={S.ctaContainer}>
+          <h2>Vamos começar?</h2>
+          <p>Agende uma conversa com nosso time hoje mesmo!</p>
+          <div className={S.buttons}>
+            <Button
+              variant="white"
+              label="Falar com especialista"
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              width={{ base: "100%", sm: "auto" }}
+            />
+            <Button
+              variant="outlineWhite"
+              label="Simular agora"
+              onClick={openContact}
+              width={{ base: "100%", sm: "auto" }}
+            />
+          </div>
+        </div>
+      </div>
+
       <div className={S.container}>
         <div className={S.grid}>
           <div className={S.logo}>
@@ -50,12 +82,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className={S.link}>
+                <Link href="/termos" className={S.link}>
                   Termos
                 </Link>
               </li>
               <li>
-                <Link href="#" className={S.link}>
+                <Link href="/politica-privacidade" className={S.link}>
                   Política de Privacidade
                 </Link>
               </li>

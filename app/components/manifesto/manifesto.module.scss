@@ -1,0 +1,147 @@
+.manifesto {
+  width: 100%;
+  background-color: #02a657; /* Green Identity */
+  padding: 6rem 0;
+  color: #ffffff;
+  position: relative;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+
+  // Background decorative patterns - premium and refined
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      // Main large circles - soft and elegant
+      radial-gradient(circle at 8% 15%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.05) 35%, transparent 55%),
+      radial-gradient(circle at 92% 85%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.09) 18%, rgba(255, 255, 255, 0.04) 32%, transparent 50%),
+      radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 15%, transparent 38%),
+      // Elegant curved waves - horizontal flow
+      radial-gradient(ellipse 1000px 180px at -10% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 30%, transparent 60%),
+      radial-gradient(ellipse 900px 160px at 110% 70%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 55%),
+      // Subtle organic curved lines
+      radial-gradient(ellipse 600px 300px at 20% 80%, rgba(255, 255, 255, 0.07) 0%, transparent 45%),
+      radial-gradient(ellipse 500px 250px at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 42%),
+      // Fine diagonal texture - very subtle
+      repeating-linear-gradient(
+        40deg,
+        transparent,
+        transparent 12px,
+        rgba(255, 255, 255, 0.03) 12px,
+        rgba(255, 255, 255, 0.03) 13px
+      );
+    background-size: 
+      550px 550px,
+      500px 500px,
+      650px 650px,
+      120% 100%,
+      110% 100%,
+      100% 100%,
+      100% 100%,
+      180px 180px;
+    background-position:
+      -80px -80px,
+      calc(100% + 80px) calc(100% + 80px),
+      50% 45%,
+      -5% 30%,
+      calc(100% + 5%) 70%,
+      15% 85%,
+      85% 15%,
+      0% 0%;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  // Decorative curved top border
+  &::after {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 75% 100%;
+    border-bottom-right-radius: 75% 100%;
+    transform: scaleX(-1); /* Invert the curve direction */
+    z-index: 5;
+  }
+
+  @media (min-width: 768px) {
+    &::after {
+      height: 70px;
+    }
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+
+    @media (min-width: 768px) {
+      padding: 0 1.075rem;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 6rem;
+    }
+  }
+
+  .titleColumn {
+    h2 {
+      font-family: "Helvetica Now Text", sans-serif;
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+
+      @media (min-width: 640px) {
+        font-size: 3rem;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 3.5rem;
+        line-height: 62px;
+      }
+
+      .dimmed {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+
+  .contentColumn {
+    p {
+      font-family: "Helvetica Now Text", sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+
+      .strong {
+        color: #ffffff;
+        font-weight: 600;
+        display: inline;
+      }
+    }
+  }
+}

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Tigra Branco",
-  description: "Tigra Branco App",
+  title: "Tigre Branco",
+  description:
+    "Soluções financeiras ágeis e seguras para o seu negócio. Antecipação de recebíveis e gestão de crédito com a Tigre Branco.",
 };
 
 export default function RootLayout({
@@ -13,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased">
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

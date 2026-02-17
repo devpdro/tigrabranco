@@ -2,16 +2,20 @@
 
 import { useState } from "react";
 import {
-  Navbar,
-  FaqAccordion,
   Footer,
   Support,
   Partners,
-  Scout,
   Business,
-  Product,
+  FeedbackLoop,
   Contact,
   WhatsappButton,
+  Workflow,
+  Header,
+  Manifesto,
+  Navbar,
+  ProcessTimeline,
+  FAQ,
+  Founder,
 } from "@/app/components";
 
 export default function Home() {
@@ -19,16 +23,41 @@ export default function Home() {
 
   return (
     <>
-      <Navbar openModal={() => setIsDrawerOpen(true)} />
-      <main className="flex min-h-screen flex-col items-center justify-between bg-[#1a1a1a]">
-        <Partners />
-        <Scout />
-        <Business />
-        <Product />
-        <FaqAccordion />
-        <Support />
-        <Footer />
-      </main>
+      <Navbar onOpenContact={() => setIsDrawerOpen(true)} />
+      
+      {/* 1. IMPACTO INICIAL - Captura atenção */}
+      <Header onOpenContact={() => setIsDrawerOpen(true)} />
+      
+      {/* 2. CREDIBILIDADE - Logo após o hero */}
+      <Partners />
+      
+      {/* 3. PROPOSTA DE VALOR - Por que existimos */}
+      <Manifesto />
+      
+      {/* 4. CALCULADORA/BENEFÍCIO - Mostre o valor tangível */}
+      <Business />
+      
+      {/* 5. COMO FUNCIONA - Processo simplificado */}
+      <Workflow />
+      
+      {/* 6. DETALHAMENTO - Timeline do processo */}
+      <ProcessTimeline onContactClick={() => setIsDrawerOpen(true)} />
+      
+      {/* 7. PROVA SOCIAL - Depoimentos de clientes */}
+      <FeedbackLoop />
+      
+      {/* 8. DIFERENCIAL - Suporte 24/7 */}
+      <Support />
+      
+      {/* 9. OBJEÇÕES - Tire dúvidas comuns */}
+      <FAQ />
+      
+      {/* 10. HUMANIZAÇÃO - Quem está por trás */}
+      <Founder />
+      
+      {/* 11. CONVERSÃO FINAL */}
+      <Footer openContact={() => setIsDrawerOpen(true)} />
+      
       <Contact isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
       <WhatsappButton />
     </>

@@ -1,0 +1,13 @@
+/* Custom styles for yet-another-react-lightbox */
+.yarl__slide {
+  max-width: 75% !important;
+  max-height: 75vh !important;
+  margin: auto !important;
+}
+
+.yarl__slide img {
+  max-width: 100% !important;
+  max-height: 75vh !important;
+  object-fit: contain !important;
+}
+

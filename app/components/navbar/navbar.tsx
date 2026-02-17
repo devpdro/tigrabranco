@@ -1,217 +1,200 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Instagram, UserSearch, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-import logo from "@/app/assets/images/LOGO.png"; // Ajuste o caminho conforme necessário
+import Image from "next/image";
+import { Button } from "@/app/components/form";
+import { IMAGES } from "@/app/assets/images";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import styles from "./navbar.module.scss";
 
 interface NavbarProps {
-  openModal?: () => void;
+  forceScrolled?: boolean;
+  onOpenContact?: () => void;
 }
 
-export function Navbar({ openModal }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
+export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(forceScrolled);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (forceScrolled) {
+      return;
+    }
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Detecta quando saiu do header (assumindo que o header tem aproximadamente 100vh)
+      const headerHeight = window.innerHeight;
+      const scrollPosition = window.scrollY;
+      
+      if (scrollPosition > headerHeight - 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forceScrolled]);
 
-  const handleSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    id: string,
-  ) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
+  const whatsappLink =
+    "https://wa.me/5514991370807?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+
+  const handleSmoothScroll = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const navLinks = [
-    { label: "Como funciona?", href: "#como-funciona", id: "como-funciona" },
-    { label: "Depoimentos", href: "#testimonials", id: "testimonials" },
-  ];
+  const handleSimulateClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (onOpenContact) {
+      onOpenContact();
+    }
+  };
+
+  const handleNavClick = (sectionId: string) => {
+    setIsMobileMenuOpen(false);
+    handleSmoothScroll(sectionId);
+  };
 
   return (
-    <>
-      <motion.nav
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-          isScrolled
-            ? "mx-6 mt-4 rounded-b-2xl rounded-t-none bg-white/80 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.08)] py-4 px-6 md:px-8"
-            : "mx-0 mt-0 bg-transparent py-6 px-8 md:px-[80px] lg:px-[120px]",
-        )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex items-center justify-between max-w-[1440px] mx-auto">
-          {/* Logo */}
-          <Link href="/" className="relative z-50">
-            <div
-              className={cn(
-                "transition-all duration-300",
-                isScrolled ? "brightness-0" : "brightness-0 invert",
-              )}
-            >
-              {/* 
-                 Nota: Assumindo que o LOGO.png é colorido ou escuro. 
-                 Se for branco, removemos o filter no isScrolled=false e adicionamos invert no isScrolled=true.
-                 Ajuste conforme a cor real do logo. 
-                 Aqui assumi que o logo original é colorido/escuro, então:
-                 - Scroll (fundo branco): brightness-0 (preto) ou normal
-                 - Topo (fundo escuro): brightness-0 invert (branco)
-               */}
-              <Image
-                src={logo}
-                alt="Tigra Branco"
-                height={40}
-                className="h-10 w-auto object-contain"
-              />
-            </div>
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleSmoothScroll(e, link.id)}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:opacity-80",
-                  isScrolled ? "text-[#0A1128]" : "text-white",
-                )}
-              >
-                {link.label}
-              </a>
-            ))}
-
-            <button
-              onClick={() => {
-                if (openModal) {
-                  openModal();
-                } else {
-                  const pricing = document.getElementById("precos");
-                  pricing?.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className="flex items-center gap-2 bg-[#6C5CE7] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-[#5B4FCF] transition-colors"
-            >
-              Descubra agora
-              <UserSearch size={18} />
-            </button>
+    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
+      <div className={styles.container}>
+        {/* Logo and Navigation Links - Left Side */}
+        <div className={styles.leftSection}>
+          <div className={styles.logo}>
+            <Image
+              src={isScrolled ? IMAGES.LOGO_PRETO : IMAGES.LOGO}
+              alt="Tigre Branco Pay"
+              width={isScrolled ? 200 : 320}
+              height={isScrolled ? 48 : 88}
+              className={styles.logoImage}
+            />
           </div>
+
+          {/* Navigation Links - Desktop */}
+          <div className={styles.navLinks}>
+            <span
+              className={styles.navLink}
+              onClick={() => handleSmoothScroll("workflow")}
+            >
+              Como funciona
+            </span>
+            <span
+              className={styles.navLink}
+              onClick={() => handleSmoothScroll("solucoes")}
+            >
+              Soluções
+            </span>
+          </div>
+        </div>
+
+        {/* Actions - Right Side */}
+        <div className={styles.actions}>
+          <Button
+            variant={isScrolled ? "primary" : "white"}
+            label="Simular agora"
+            onClick={handleSimulateClick}
+            size="md"
+            className={styles.desktopButton}
+          />
+          <Button
+            variant={isScrolled ? "secondary" : "outlineWhite"}
+            label="Falar com especialista"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="md"
+            className={styles.desktopButton}
+          />
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative z-50 p-2"
+            className={styles.menuButton}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Menu"
           >
-            {isMobileMenuOpen ? (
-              <X className={isScrolled ? "text-[#0A1128]" : "text-white"} />
-            ) : (
-              <Menu className={isScrolled ? "text-[#0A1128]" : "text-white"} />
-            )}
+            <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.open : ""}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </button>
         </div>
-      </motion.nav>
+      </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
             <motion.div
+              className={styles.mobileMenuOverlay}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
             />
             <motion.div
+              className={styles.mobileMenu}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-50 shadow-2xl flex flex-col"
+              transition={{ type: "spring", damping: 35, stiffness: 400, mass: 0.5 }}
             >
-              <div className="p-6 border-b border-gray-100 flex justify-between items-center">
-                <Image
-                  src={logo}
-                  alt="Tigra Branco"
-                  height={32}
-                  className="h-8 w-auto"
-                />
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-gray-500 hover:bg-gray-100 rounded-full"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-
-              <div className="flex-1 overflow-y-auto py-6 px-6 flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleSmoothScroll(e, link.id)}
-                    className="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 text-gray-800 font-medium transition-colors"
+              <div className={styles.mobileMenuContent}>
+                <div className={styles.mobileMenuHeader}>
+                  <span
+                    className={styles.mobileNavLinkTop}
+                    onClick={() => handleNavClick("workflow")}
                   >
-                    {link.label}
-                    <ArrowRight size={16} className="text-gray-400" />
-                  </a>
-                ))}
-                <a
-                  href="#duvidas-comuns"
-                  onClick={(e) => handleSmoothScroll(e, "duvidas-comuns")}
-                  className="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 text-gray-800 font-medium transition-colors"
-                >
-                  Dúvidas comuns
-                  <ArrowRight size={16} className="text-gray-400" />
-                </a>
-              </div>
+                    Como funciona
+                  </span>
+                  <button
+                    className={styles.mobileMenuClose}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label="Fechar menu"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
 
-              <div className="p-6 border-t border-gray-100 space-y-4">
-                <a
-                  href="https://www.instagram.com/usezapcheck/"
-                  target="_blank"
-                  className="flex items-center gap-3 text-gray-600 hover:text-[#E1306C] transition-colors"
-                >
-                  <Instagram size={24} />
-                  <span className="font-medium">Siga-nos no Instagram</span>
-                </a>
-
-                <button
-                  onClick={() => {
-                    if (openModal) openModal();
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center justify-center gap-2 bg-[#6C5CE7] text-white py-3.5 rounded-full font-medium hover:bg-[#5B4FCF] transition-colors"
-                >
-                  Descubra agora
-                  <UserSearch size={20} />
-                </button>
-
-                <p className="text-center text-xs text-gray-400 mt-4">
-                  © {new Date().getFullYear()} ZapCheck. Todos os direitos
-                  reservados.
-                </p>
+                <div className={styles.mobileNavLinks}>
+                  <span
+                    className={styles.mobileNavLink}
+                    onClick={() => handleNavClick("solucoes")}
+                  >
+                    Soluções
+                  </span>
+                </div>
+                <div className={styles.mobileActions}>
+                  <Button
+                    variant={isScrolled ? "primary" : "primary"}
+                    label="Simular agora"
+                    onClick={handleSimulateClick}
+                    size="md"
+                    width={{ base: "100%" }}
+                  />
+                  <Button
+                    variant={isScrolled ? "secondary" : "secondary"}
+                    label="Falar com especialista"
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="md"
+                    width={{ base: "100%" }}
+                  />
+                </div>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-    </>
+    </nav>
   );
 }
+
