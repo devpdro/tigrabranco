@@ -9,13 +9,6 @@ import { Button } from "@/app/components/form";
 
 import S from "./footer.module.scss";
 
-const handleSmoothScroll = (sectionId: string) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
 interface FooterProps {
   openContact?: () => void;
 }
@@ -23,6 +16,13 @@ interface FooterProps {
 export function Footer({ openContact }: FooterProps) {
   const whatsappLink =
     "https://wa.me/5514991370807?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+
+  const handleSmoothScroll = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <footer className={S.footer}>
@@ -105,12 +105,16 @@ export function Footer({ openContact }: FooterProps) {
             <h4 className={S.heading}>Obtenha ajuda</h4>
             <ul className={S.list}>
               <li>
-                <button
-                  onClick={() => handleSmoothScroll("faq")}
+                <Link 
+                  href="#" 
                   className={S.link}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSmoothScroll("faq");
+                  }}
                 >
                   Perguntas frequentes
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

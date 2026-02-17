@@ -3,22 +3,18 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  margin: 20px;
+  margin: 20px 20px;
   border-radius: 16px;
   flex-direction: column;
   background: transparent;
-  width: calc(100% - 40px);
-  max-width: 100%;
 
   @media (max-width: 1024px) {
-    margin: 16px;
-    width: calc(100% - 32px);
+    margin: 16px 16px;
   }
 
   @media (max-width: 768px) {
     min-height: 110vh;
-    margin: 12px;
-    width: calc(100% - 24px);
+    margin: 12px 12px;
     border-radius: 12px;
   }
 }

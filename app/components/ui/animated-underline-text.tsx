@@ -70,6 +70,7 @@ const AnimatedText = React.forwardRef<HTMLSpanElement, AnimatedTextProps>(
             viewBox="0 0 240 20"
             preserveAspectRatio="none"
             className={cn(styles.underline, underlineClassName)}
+            style={{ display: "block" }}
           >
             <motion.path
               d={underlinePath}

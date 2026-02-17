@@ -52,7 +52,7 @@ export function FAQ() {
   };
 
   return (
-    <section ref={ref} id="faq" className={styles.faq}>
+    <section id="faq" ref={ref} className={styles.faq}>
       <div className={styles.container}>
         <motion.div
           className={styles.header}

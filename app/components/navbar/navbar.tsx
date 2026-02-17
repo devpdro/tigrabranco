@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/app/components/form";
 import { IMAGES } from "@/app/assets/images";
 import { motion, AnimatePresence } from "framer-motion";
@@ -67,7 +66,13 @@ export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
       <div className={styles.container}>
         {/* Logo and Navigation Links - Left Side */}
         <div className={styles.leftSection}>
-          <Link href="/" className={styles.logo}>
+          <div 
+            className={styles.logo}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            style={{ cursor: "pointer" }}
+          >
             <Image
               src={isScrolled ? IMAGES.LOGO_PRETO : IMAGES.LOGO}
               alt="Tigre Branco Pay"
@@ -75,7 +80,7 @@ export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
               height={isScrolled ? 48 : 88}
               className={styles.logoImage}
             />
-          </Link>
+          </div>
 
           {/* Navigation Links - Desktop */}
           <div className={styles.navLinks}>

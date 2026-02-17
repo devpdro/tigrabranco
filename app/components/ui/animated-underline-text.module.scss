@@ -17,15 +17,20 @@
 
 .underline {
   position: absolute;
-  bottom: -6px;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 20px;
   pointer-events: none;
   overflow: visible;
+  transform: translateY(4px); /* Move a linha para baixo, abaixo do texto */
 
   @media (max-width: 768px) {
-    bottom: -8px; /* Ajustado para ficar mais próximo da base do texto no mobile */
+    transform: translateY(3px); /* Ajustado para mobile */
+  }
+
+  @media (max-width: 480px) {
+    transform: translateY(2px); /* Ainda mais próximo em telas muito pequenas */
   }
 }
 
