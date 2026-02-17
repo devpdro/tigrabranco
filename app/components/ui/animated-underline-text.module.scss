@@ -23,5 +23,9 @@
   height: 20px;
   pointer-events: none;
   overflow: visible;
+
+  @media (max-width: 768px) {
+    bottom: -8px; /* Ajustado para ficar mais próximo da base do texto no mobile */
+  }
 }
 

@@ -4,6 +4,13 @@
   color: #ffffff;
   position: relative;
   overflow: hidden;
+  // Enable zoom on mobile devices
+  -webkit-overflow-scrolling: touch;
+  
+  @media (max-width: 768px) {
+    // Allow pinch zoom on mobile
+    touch-action: pan-x pan-y pinch-zoom;
+  }
 
   // Background decorative patterns - premium and refined
   &::before {
@@ -61,9 +68,15 @@
   padding: 0 1.5rem;
   position: relative;
   z-index: 10;
+  -webkit-overflow-scrolling: touch;
 
   @media (min-width: 768px) {
     padding: 0 1.075rem;
+  }
+
+  @media (max-width: 768px) {
+    // Allow pinch zoom on mobile
+    touch-action: pan-x pan-y pinch-zoom;
   }
 }
 
@@ -123,9 +136,15 @@
   transition: transform 0.2s ease;
   position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    // Allow pinch zoom on mobile
+    touch-action: pan-x pan-y pinch-zoom;
   }
 
   .iconWrapper {

@@ -70,47 +70,68 @@ export function Highlighter({
     annotationRef.current = annotation;
     annotationRef.current.show();
 
-    const updateAnnotation = () => {
-      if (annotationRef.current) {
-        annotationRef.current.hide();
-        // Use requestAnimationFrame to ensure DOM is updated
-        requestAnimationFrame(() => {
-          if (annotationRef.current) {
-            annotationRef.current.show();
-          }
-        });
-      }
-    };
+    // Track if annotation has been shown to prevent reanimation
+    let hasAnimated = false;
+    
+    // Mark as animated after show completes
+    const animationTimeout = setTimeout(() => {
+      hasAnimated = true;
+    }, animationDuration + 100);
 
+    // Only update on resize, not on scroll to prevent reanimation and misalignment
     const resizeObserver = new ResizeObserver(() => {
-      updateAnnotation();
+      if (hasAnimated && annotationRef.current) {
+        // Only update position on resize, not on scroll
+        // Use refresh if available, otherwise recreate without animation
+        try {
+          // Try to use refresh method if available
+          if (typeof (annotationRef.current as any).refresh === 'function') {
+            (annotationRef.current as any).refresh();
+          } else {
+            // Fallback: recreate without animation
+            annotationRef.current.hide();
+            requestAnimationFrame(() => {
+              if (element && annotationRef.current) {
+                const newAnnotation = annotate(element, {
+                  ...annotationConfig,
+                  animationDuration: 0,
+                });
+                newAnnotation.show();
+                annotationRef.current = newAnnotation;
+              }
+            });
+          }
+        } catch {
+          // If refresh fails, just leave it as is
+        }
+      }
     });
 
-    // Add scroll listener to recalculate on scroll
-    const handleScroll = () => {
-      updateAnnotation();
-    };
-
     resizeObserver.observe(element);
-    resizeObserver.observe(document.body);
-    
-    // Throttle scroll events for better performance
-    let scrollTimeout: ReturnType<typeof setTimeout>;
-    const throttledScroll = () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(handleScroll, 16); // ~60fps
-    };
 
-    window.addEventListener("scroll", throttledScroll, { passive: true });
-    window.addEventListener("resize", updateAnnotation);
+    // Only listen to resize, NOT scroll, to prevent reanimation and misalignment
+    window.addEventListener("resize", () => {
+      if (hasAnimated && annotationRef.current) {
+        try {
+          if (typeof (annotationRef.current as any).refresh === 'function') {
+            (annotationRef.current as any).refresh();
+          }
+        } catch {
+          // Ignore errors
+        }
+      }
+    });
 
     return () => {
+      clearTimeout(animationTimeout);
       if (element) {
-        annotate(element, { type: action }).remove();
+        try {
+          annotate(element, { type: action }).remove();
+        } catch {
+          // Ignore cleanup errors
+        }
         resizeObserver.disconnect();
-        window.removeEventListener("scroll", throttledScroll);
-        window.removeEventListener("resize", updateAnnotation);
-        clearTimeout(scrollTimeout);
+        window.removeEventListener("resize", () => {});
       }
     };
   }, [
@@ -122,6 +143,7 @@ export function Highlighter({
     iterations,
     padding,
     multiline,
+    isView,
   ]);
 
   return (

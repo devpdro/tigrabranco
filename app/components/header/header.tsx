@@ -9,11 +9,11 @@ import { useRef } from "react";
 
 import { Button } from "@/app/components/form";
 import { IMAGES } from "@/app/assets/images";
-import { Highlighter } from "@/app/components/ui/highlighter";
+import { AnimatedText } from "@/app/components/ui/animated-underline-text";
 import styles from "./header.module.scss";
 
 const VALOR_MIN = 50_000;
-const VALOR_MAX = 5_000_000;
+const VALOR_MAX = 500_000;
 
 const PRAZOS = [
   { value: 30, label: "30 dias" },
@@ -137,17 +137,14 @@ export function Header({ onOpenContact }: HeaderProps) {
         >
           <motion.h1 className={styles.heroTitle} variants={itemVariants}>
             Receba agora e transforme seu{" "}
-            <Highlighter
-              action="underline"
-              color="#02a657"
-              strokeWidth={2}
-              animationDuration={800}
-              iterations={1}
-              padding={4}
-              isView={false}
-            >
-              negócio
-            </Highlighter>
+            <AnimatedText
+              text="negócio"
+              strokeColor="#02a657"
+              strokeWidth={4}
+              underlinePath="M 0,10 Q 60,0 120,10 Q 180,20 240,10"
+              underlineHoverPath="M 0,10 Q 60,20 120,10 Q 180,0 240,10"
+              underlineDuration={1.5}
+            />
           </motion.h1>
 
           <motion.p className={styles.heroDescription} variants={itemVariants}>
@@ -165,7 +162,7 @@ export function Header({ onOpenContact }: HeaderProps) {
                 variant="white"
                 label="Simular Agora"
                 icon={<ArrowRight size={18} />}
-                width={{ base: "auto", sm: "auto" }}
+                width={{ base: "100%", sm: "auto" }}
                 onClick={handleSimulateClick}
               />
             </motion.div>
@@ -177,7 +174,7 @@ export function Header({ onOpenContact }: HeaderProps) {
               <Button
                 variant="outlineWhite"
                 label="Falar com especialista"
-                width={{ base: "auto", sm: "auto" }}
+                width={{ base: "100%", sm: "auto" }}
               />
             </motion.div>
           </motion.div>

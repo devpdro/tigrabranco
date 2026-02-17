@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import Button from "@/app/components/form/button/button";
-import { Highlighter } from "@/app/components/ui/highlighter";
+import { AnimatedText } from "@/app/components/ui/animated-underline-text";
 import styles from "./process-timeline.module.scss";
 
 const steps = [
@@ -52,17 +52,14 @@ export function ProcessTimeline({ onContactClick: _onContactClick }: ProcessTime
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           Como estruturar sua{" "}
-          <Highlighter
-            action="underline"
-            color="#02a657"
-            strokeWidth={2}
-            animationDuration={800}
-            iterations={1}
-            padding={4}
-            isView={true}
-          >
-            Securitizadora
-          </Highlighter>
+          <AnimatedText
+            text="Securitizadora"
+            strokeColor="#02a657"
+            strokeWidth={4}
+            underlinePath="M 0,10 Q 60,0 120,10 Q 180,20 240,10"
+            underlineHoverPath="M 0,10 Q 60,20 120,10 Q 180,0 240,10"
+            underlineDuration={1.5}
+          />
         </motion.h2>
 
         <div className={styles.timelineWrapper}>
