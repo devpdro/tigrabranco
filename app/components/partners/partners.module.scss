@@ -1,9 +1,11 @@
 .partners {
   width: 100%;
+  max-width: 100vw;
   background-color: #ffffff;
   padding: 2rem 0;
   border-bottom: 1px solid #f1f5f9;
   overflow: hidden; /* Prevent horizontal scroll on page */
+  position: relative;
 
   .container {
     max-width: 1280px;
@@ -66,6 +68,7 @@
       overflow: hidden;
       position: relative;
       width: 100%;
+      max-width: 100%;
 
       /* Mask effect for smooth fade on edges */
       mask-image: linear-gradient(

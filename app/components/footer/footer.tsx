@@ -9,6 +9,13 @@ import { Button } from "@/app/components/form";
 
 import S from "./footer.module.scss";
 
+const handleSmoothScroll = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
 interface FooterProps {
   openContact?: () => void;
 }
@@ -98,9 +105,12 @@ export function Footer({ openContact }: FooterProps) {
             <h4 className={S.heading}>Obtenha ajuda</h4>
             <ul className={S.list}>
               <li>
-                <Link href="#" className={S.link}>
+                <button
+                  onClick={() => handleSmoothScroll("faq")}
+                  className={S.link}
+                >
                   Perguntas frequentes
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
