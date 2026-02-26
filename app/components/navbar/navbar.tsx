@@ -39,7 +39,7 @@ export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
   }, [forceScrolled]);
 
   const whatsappLink =
-    "https://wa.me/5514991370807?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+    "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
 
   const handleSmoothScroll = (sectionId: string) => {
     const element = document.getElementById(sectionId);

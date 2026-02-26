@@ -38,6 +38,9 @@ interface HeaderProps {
 }
 
 export function Header({ onOpenContact }: HeaderProps) {
+  const whatsappLink =
+    "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+
   const [valorRecebiveis, setValorRecebiveis] = useState(500_000);
   const [prazoMedio, setPrazoMedio] = useState(90);
   const calculatorRef = useRef(null);
@@ -180,6 +183,9 @@ export function Header({ onOpenContact }: HeaderProps) {
               <Button
                 variant="outlineWhite"
                 label="Falar com especialista"
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 width={{ base: "100%", sm: "auto" }}
               />
             </motion.div>

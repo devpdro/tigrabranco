@@ -3,7 +3,7 @@
 import S from "./whatsapp-button.module.scss";
 
 export function WhatsappButton() {
-  const phoneNumber = "5514991370807";
+  const phoneNumber = "5511914924000";
   const message = encodeURIComponent(
     "Olá! Vim através do site da Tigre Branco e gostaria de receber assistência de um especialista.",
   );
