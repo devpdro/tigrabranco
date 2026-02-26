@@ -41,11 +41,17 @@ export function Header({ onOpenContact }: HeaderProps) {
   const [valorRecebiveis, setValorRecebiveis] = useState(500_000);
   const [prazoMedio, setPrazoMedio] = useState(90);
   const calculatorRef = useRef(null);
-  const isCalculatorInView = useInView(calculatorRef, { once: true, margin: "-100px" });
+  const isCalculatorInView = useInView(calculatorRef, {
+    once: true,
+    margin: "-100px",
+  });
 
   const sliderPercentage = Math.min(
     100,
-    Math.max(0, ((valorRecebiveis - VALOR_MIN) / (VALOR_MAX - VALOR_MIN)) * 100),
+    Math.max(
+      0,
+      ((valorRecebiveis - VALOR_MIN) / (VALOR_MAX - VALOR_MIN)) * 100,
+    ),
   );
 
   // Cálculo do valor líquido e diferença
@@ -279,7 +285,9 @@ export function Header({ onOpenContact }: HeaderProps) {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <span className={styles.resultLabel}>Ganhe em Fluxo de Caixa</span>
+              <span className={styles.resultLabel}>
+                Ganhe em Fluxo de Caixa
+              </span>
               <motion.span
                 key={diferencaFluxo}
                 className={styles.resultValue}
