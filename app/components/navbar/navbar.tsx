@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/app/components/form";
 import { IMAGES } from "@/app/assets/images";
@@ -13,30 +13,9 @@ interface NavbarProps {
   onOpenContact?: () => void;
 }
 
-export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(forceScrolled);
+export function Navbar({ onOpenContact }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (forceScrolled) {
-      return;
-    }
-
-    const handleScroll = () => {
-      // Detecta quando saiu do header (assumindo que o header tem aproximadamente 100vh)
-      const headerHeight = window.innerHeight;
-      const scrollPosition = window.scrollY;
-      
-      if (scrollPosition > headerHeight - 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [forceScrolled]);
+  const isScrolled = true;
 
   const whatsappLink =
     "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";

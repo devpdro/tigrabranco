@@ -13,30 +13,30 @@ export function FeedbackLoop() {
   const features = [
     {
       icon: Factory,
-      title: "Indústrias",
+      title: "Diagnóstico profundo da operação",
       description:
-        "Antecipe recebíveis e fortaleça seu capital de giro para aquisição de matéria-prima, aumento de produção e expansão fabril com previsibilidade.",
+        "Mapeamos sua estrutura atual de crédito, recebíveis, riscos e governança para identificar gargalos, oportunidades de melhoria e caminhos de crescimento sustentável.",
       progress: "85%",
     },
     {
       icon: Store,
-      title: "Comércio e Varejo",
+      title: "Desenho da arquitetura financeira",
       description:
-        "Converta vendas a prazo em liquidez imediata e aumente seu poder de negociação com fornecedores sem recorrer a crédito bancário.",
+        "Ajudamos você a organizar a arquitetura do negócio financeiro, conectando produtos, fluxos, APIs, parceiros e esteiras de decisão em um modelo coerente e escalável.",
       progress: "90%",
     },
     {
       icon: Briefcase,
-      title: "Prestadores de Serviços",
+      title: "Aplicação prática da infraestrutura FaaS",
       description:
-        "Estruture seus contratos e notas fiscais como ativos financeiros e gere fluxo de caixa contínuo para sustentar o crescimento.",
+        "Trazemos referências e boas práticas para que sua equipe desenhe políticas, fluxos operacionais e rotinas de controle usando a infraestrutura já disponível, sem complexidade desnecessária.",
       progress: "75%",
     },
     {
       icon: Sprout,
-      title: "Agronegócio",
+      title: "Otimização contínua e expansão",
       description:
-        "Acesse capital estruturado para custeio de safra, compra de insumos e expansão produtiva com agilidade e segurança.",
+        "Acompanhamos indicadores, comportamento da carteira e performance das estruturas para ajustar modelos, reduzir riscos e abrir espaço para novas teses e produtos financeiros.",
       progress: "95%",
     },
   ];
@@ -50,10 +50,11 @@ export function FeedbackLoop() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2>Soluções de crédito para todos os setores.</h2>
+          <h2>Acompanhamento estratégico para sua operação financeira.</h2>
           <p>
-            Impulsione o crescimento do seu negócio com antecipação de
-            recebíveis rápida e segura.
+            Unimos infraestrutura FaaS e suporte especializado para ajudar você
+            a estruturar, evoluir e escalar sua securitizadora ou negócio de
+            crédito com mais clareza, controle e eficiência.
           </p>
         </motion.div>
 

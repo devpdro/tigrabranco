@@ -9,11 +9,20 @@ export default function Termos() {
       <Navbar forceScrolled />
       <div className={styles.container}>
         <div className={styles.badge}>Atualizado 21/12/2024</div>
-        <h1 className={styles.title}>TERMOS DE SERVIÇO DO TIGRE BRANCO PAY</h1>
+        <h1 className={styles.title}>TERMOS DE SERVIÇO DA PLATAFORMA TIGRE BRANCO</h1>
         
         <div className={styles.content}>
           <p>
-            A Tigre Branco Securitizadora S.A. (&quot; <strong>Tigre Branco</strong> &quot;, &quot; <strong>nós</strong> &quot; ou &quot; <strong>nos</strong> &quot;) é uma securitizadora autorizada que oferece serviços de antecipação de recebíveis e securitização para empresas. Estes Termos de Serviço estabelecem as condições de uso de nosso site (https://tigrebranco.com.br) e de nossa plataforma digital, bem como os direitos e obrigações relacionados à contratação de nossos serviços financeiros.
+            A Tigre Branco Securitizadora S.A. (&quot; <strong>Tigre Branco</strong> &quot;, &quot;
+            <strong>nós</strong> &quot; ou &quot; <strong>nos</strong> &quot;) é a empresa responsável
+            pela operação da plataforma Tigre Branco, que disponibiliza infraestrutura financeira
+            (Finance as a Service – FaaS) para empresas e demais parceiros, permitindo a oferta e
+            gestão de produtos financeiros como securitização de recebíveis, operações de crédito,
+            pagamentos, análise de crédito e rotinas de contabilidade e compliance, por meio de APIs
+            e ambiente web. Estes Termos de Serviço estabelecem as condições de uso de nosso site
+            (https://tigrebranco.com.br) e de nossa plataforma digital, bem como os direitos e
+            obrigações relacionados ao acesso e à utilização dessa infraestrutura e aos serviços
+            disponibilizados em conjunto com instituições parceiras devidamente autorizadas.
           </p>
 
           <p>
@@ -21,7 +30,12 @@ export default function Termos() {
           </p>
 
           <p className={styles.alert}>
-            <strong>LEIA ESTE CONTRATO ATENTAMENTE PARA GARANTIR QUE VOCÊ ENTENDA CADA DISPOSIÇÃO.</strong> Este Contrato contém uma cláusula de arbitragem individual obrigatória e de renúncia a ações coletivas/julgamento por júri, que exige o uso de arbitragem em caráter individual para resolver disputas, em vez de julgamentos por júri ou ações coletivas.
+            <strong>
+              LEIA ESTE CONTRATO ATENTAMENTE PARA GARANTIR QUE VOCÊ ENTENDA CADA DISPOSIÇÃO.
+            </strong>{" "}
+            Este Contrato contém cláusulas importantes sobre o uso da plataforma, responsabilidade,
+            limitações de garantia e solução de controvérsias, que devem ser lidas com atenção
+            antes de você utilizar os Serviços.
           </p>
 
           <div className={styles.divider}>
@@ -36,7 +50,20 @@ export default function Termos() {
 
           <h3>1.2. Solicitação de Conta</h3>
           <p>
-            Sua conta lhe dá acesso a determinados Serviços, incluindo operações de securitização, antecipação de recebíveis e outras funcionalidades que possamos estabelecer e manter periodicamente, a nosso exclusivo critério. Você precisará fornecer informações da empresa e determinadas informações pessoais (coletivamente, &quot; <strong>Informações da Empresa</strong> &quot;) ao solicitar uma conta. As Informações da Empresa podem incluir o nome comercial registrado e o estado de constituição, o endereço comercial, detalhes de propriedade, a natureza do negócio e outras informações comerciais que possamos solicitar periodicamente; o nome, as informações de contato e a data de nascimento dos Administradores, Usuários ou beneficiários finais, e outras informações pessoais; e um certificado de registro da empresa, comprovante de endereço, documento de identificação pessoal e quaisquer outras informações documentais utilizadas para verificar as informações comerciais e pessoais.
+            Sua Conta lhe dá acesso a determinados Serviços, incluindo funcionalidades de
+            infraestrutura financeira disponibilizadas via API e plataforma, como gestão de
+            operações de crédito e securitização, recebíveis, pagamentos, análise de crédito,
+            rotinas contábeis e de compliance, bem como outras funcionalidades que possamos
+            estabelecer e manter periodicamente, a nosso exclusivo critério. Você precisará
+            fornecer informações da empresa e determinadas informações pessoais (coletivamente,
+            &quot; <strong>Informações da Empresa</strong> &quot;) ao solicitar uma Conta. As
+            Informações da Empresa podem incluir o nome comercial registrado e o estado de
+            constituição, o endereço comercial, detalhes de propriedade, a natureza do negócio e
+            outras informações comerciais que possamos solicitar periodicamente; o nome, as
+            informações de contato e a data de nascimento dos Administradores, Usuários ou
+            beneficiários finais, e outras informações pessoais; e um certificado de registro da
+            empresa, comprovante de endereço, documento de identificação pessoal e quaisquer outras
+            informações documentais utilizadas para verificar as informações comerciais e pessoais.
           </p>
 
           <h3>1.3. Gerenciamento e Segurança da Conta</h3>
@@ -46,7 +73,24 @@ export default function Termos() {
 
           <h3>1.4. Taxas</h3>
           <p>
-            Podemos cobrar taxas por alguns Serviços, incluindo taxas periódicas, taxas de uso, taxas de serviço e taxas aplicáveis a determinadas transações. Também podemos cobrar taxas por pagamentos atrasados ou não realizados, ou por uso indevido de sua conta ou dos Serviços. Divulgaremos as taxas a você ao abrir sua conta, quando você começar a usar um novo Serviço ou por meio do Site. Podemos atualizar, adicionar ou alterar as taxas mediante aviso prévio de 30 dias.
+            Podemos cobrar taxas por alguns Serviços, incluindo taxas periódicas, taxas de uso,
+            taxas de serviço e taxas aplicáveis a determinadas transações. Também podemos cobrar
+            taxas por pagamentos atrasados ou não realizados, ou por uso indevido de sua Conta ou
+            dos Serviços. Divulgaremos as taxas a você ao abrir sua Conta, quando você começar a
+            usar um novo Serviço ou por meio do Site. Podemos atualizar, adicionar ou alterar as
+            taxas mediante aviso prévio de 30 dias.
+          </p>
+
+          <h3>1.5. Natureza dos Serviços da Plataforma</h3>
+          <p>
+            A plataforma Tigre Branco oferece infraestrutura tecnológica, operacional e de
+            governança para que sua empresa possa estruturar, integrar e operar produtos e serviços
+            financeiros, inclusive operações de crédito e securitização, por meio de APIs e
+            ambiente web. Salvo disposição em contrário em contratos específicos, a Tigre Branco não
+            concede crédito diretamente ao usuário final e não atua como instituição financeira
+            perante os clientes das empresas que utilizam a plataforma; as operações financeiras são
+            formalizadas e liquidadas por instituições parceiras devidamente autorizadas e
+            reguladas, com as quais você poderá manter relação contratual própria.
           </p>
 
           <div className={styles.divider}>

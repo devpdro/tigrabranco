@@ -31,27 +31,27 @@ export function Workflow() {
     {
       id: "cobrancas",
       icon: Wallet,
-      title: "Gestão de Cobranças",
+      title: "Gestão de cobranças na mesma visão",
       description:
-        "Controle a inadimplência, renegocie dívidas e acompanhe seus recebíveis com dashboards automáticos e integrados.",
+        "Centralize a visão da carteira, acompanhe inadimplência e renegociações e enxergue seus recebíveis em painéis claros, pensados para operações de crédito e securitização.",
       image: IMAGES.COBRANÇAS,
       alt: "Painel de Gestão de Cobranças",
     },
     {
       id: "acompanhamento",
       icon: Activity,
-      title: "Monitoramento em Tempo Real",
+      title: "Monitoramento em tempo real",
       description:
-        "Visualize o status de cada contrato em tempo real, da análise ao pagamento, garantindo total transparência na esteira.",
+        "Acompanhe cada contrato, do onboarding ao pagamento final, com status atualizados em tempo real e trilha completa da esteira, dando previsibilidade para decisões do dia a dia.",
       image: IMAGES.ACOMPANHAMENTO,
       alt: "Dashboard de Acompanhamento de Propostas",
     },
     {
       id: "digitacao",
       icon: FileText,
-      title: "Digitação Intuitiva",
+      title: "Cadastro guiado e sem fricção",
       description:
-        "Cadastre propostas com validação automática e fluxo guiado, reduzindo erros e eliminando o retrabalho operacional.",
+        "Cadastre propostas em um fluxo guiado, com validações automáticas e campos pensados para operações financeiras, reduzindo erros e retrabalho da sua equipe.",
       image: IMAGES.DIGITAÇÃO,
       alt: "Interface de Digitação de Propostas",
     },
@@ -72,10 +72,10 @@ export function Workflow() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            WORKFLOW INTELIGENTE
+            SISTEMA PRÓPRIO DE WORKFLOW
           </motion.span>
           <h2>
-            Domine cada etapa da sua operação de crédito com nosso{" "}
+            Domine cada etapa da sua operação financeira com nosso{" "}
             <HandWrittenTextInline
               text="sistema próprio"
               className={S.handWritten}

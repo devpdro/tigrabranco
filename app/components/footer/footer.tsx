@@ -123,27 +123,27 @@ export function Footer({ openContact }: FooterProps) {
         <div className={S.legal}>
           <div className={S.text}>
             <p>
-              A Tigra Branco é uma plataforma digital que atua como
-              correspondente bancário para facilitar o processo de contratação
-              de empréstimos. Como correspondente bancário, seguimos as
-              diretrizes do Banco Central do Brasil, nos termos da Resolução nº.
-              3.954 de 24 de fevereiro de 2011.
+              A Tigre Branco é uma plataforma de infraestrutura financeira
+              que oferece, via API, serviços como:
+              securitização de recebíveis, pagamentos, análise de crédito e
+              gestão contábil/compliance para empresas, fintechs e demais
+              parceiros de negócios.
             </p>
             <p>
-              A análise de crédito e cálculo das taxas de juros dependem de
-              diversas informações, como seus dados financeiros, histórico de
-              crédito e prazo de pagamento. Toda avaliação será realizada
-              conforme a política de crédito da Instituição Financeira parceira.
-              Antes da contratação de qualquer serviço através de nossos
-              parceiros, você receberá todas as condições e informações
-              relativas ao empréstimo de forma completa e transparente,
-              incluindo impostos incidentes (IOF) e Custo Efetivo Total (CET).
+              A Tigre Branco não é instituição financeira e não concede crédito
+              diretamente ao usuário final. As operações financeiras são
+              estruturadas e formalizadas por instituições parceiras
+              devidamente autorizadas e reguladas, que são responsáveis pela
+              análise de crédito, definição de taxas, prazos e demais
+              condições econômicas.
             </p>
             <p>
-              O atraso ou não pagamento de prestações do contrato de empréstimo
-              pessoal pode ter consequências legais, tais como a inclusão de
-              nome nos cadastros dos órgãos de proteção ao crédito, o protesto
-              de títulos e o ajuizamento de ações de cobrança.
+              Antes da contratação de qualquer operação, todas as condições,
+              encargos e tributos aplicáveis, incluindo Custo Efetivo Total, serão informados de forma clara e transparente pelas
+              instituições parceiras. O atraso ou não cumprimento das
+              obrigações contratadas poderá resultar em encargos adicionais e
+              medidas de cobrança, conforme previsto em contrato e na legislação
+              vigente.
             </p>
           </div>
         </div>

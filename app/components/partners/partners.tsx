@@ -13,10 +13,8 @@ export function Partners() {
   const partners = [
     { name: "Celcoin", logo: IMAGES.CELCOIN },
     { name: "Logo BMP", logo: IMAGES.LOGO_BMP },
-    { name: "Qitech", logo: IMAGES.QITECH },
     { name: "Serasa", logo: IMAGES.SERASA },
     { name: "Unico", logo: IMAGES.UNICO },
-    { name: "Uy3", logo: IMAGES.UY3 },
   ];
 
   // Duplicate the list to create seamless infinite scroll

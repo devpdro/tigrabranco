@@ -9,11 +9,11 @@ export default function PoliticaPrivacidade() {
       <Navbar forceScrolled />
       <div className={styles.container}>
         <div className={styles.badge}>Atualizado 21/12/2024</div>
-        <h1 className={styles.title}>POLÍTICA DE PRIVACIDADE DO TIGRE BRANCO PAY</h1>
+        <h1 className={styles.title}>POLÍTICA DE PRIVACIDADE DA PLATAFORMA TIGRE BRANCO</h1>
         
         <div className={styles.content}>
           <p>
-            A Tigre Branco Securitizadora S.A. (&quot; <strong>Tigre Branco</strong> &quot;, &quot; <strong>nós</strong> &quot; ou &quot; <strong>nos</strong> &quot;) é uma securitizadora autorizada que oferece serviços de antecipação de recebíveis e securitização para empresas. Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e protegemos suas informações pessoais e empresariais quando você utiliza nosso site (https://tigrebranco.com.br) ou nossa plataforma digital para solicitar ou contratar nossos serviços.
+            A Tigre Branco Securitizadora S.A. (&quot; <strong>Tigre Branco</strong> &quot;, &quot; <strong>nós</strong> &quot; ou &quot; <strong>nos</strong> &quot;) é a empresa responsável pela operação da plataforma Tigre Branco, uma solução de infraestrutura financeira (Finance as a Service – FaaS) que oferece, para empresas e demais parceiros de negócios, serviços como securitização de recebíveis, pagamentos, análise de crédito e rotinas de gestão contábil e de compliance, disponibilizados por meio de APIs e ambiente web. Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e protegemos suas informações pessoais e empresariais quando você utiliza nosso site (https://tigrebranco.com.br) ou nossa plataforma digital para solicitar, integrar ou contratar nossos serviços.
           </p>
 
           <p>
@@ -75,12 +75,34 @@ export default function PoliticaPrivacidade() {
             Utilizamos as informações coletadas para os seguintes fins:
           </p>
           <ul>
-            <li><strong>Prestação de Serviços:</strong> Processar solicitações de conta, avaliar elegibilidade para securitização e antecipação de recebíveis, executar transações e fornecer suporte ao cliente;</li>
-            <li><strong>Verificação e Segurança:</strong> Verificar identidade, prevenir fraudes, lavagem de dinheiro e outras atividades ilegais;</li>
-            <li><strong>Comunicação:</strong> Enviar notificações sobre sua Conta, transações, alterações nos Serviços e comunicações comerciais relevantes;</li>
-            <li><strong>Melhoria dos Serviços:</strong> Analisar padrões de uso, desenvolver novos produtos e melhorar a experiência do usuário;</li>
-            <li><strong>Cumprimento Legal:</strong> Atender obrigações legais, regulatórias e de compliance, incluindo relatórios às autoridades competentes;</li>
-            <li><strong>Análise de Risco:</strong> Avaliar riscos creditícios e operacionais para decisões de aprovação e gestão de carteira.</li>
+            <li>
+              <strong>Prestação de Serviços:</strong> Processar solicitações de conta, avaliar
+              elegibilidade e viabilidade de operações estruturadas, disponibilizar e operar
+              serviços financeiros via API (incluindo securitização de recebíveis, pagamentos,
+              análise de crédito e rotinas contábeis e de compliance), bem como oferecer suporte
+              estratégico e operacional relacionado ao uso da plataforma;
+            </li>
+            <li>
+              <strong>Verificação e Segurança:</strong> Verificar identidade, prevenir fraudes,
+              lavagem de dinheiro e outras atividades ilegais;
+            </li>
+            <li>
+              <strong>Comunicação:</strong> Enviar notificações sobre sua Conta, transações,
+              alterações nos Serviços e comunicações comerciais relevantes;
+            </li>
+            <li>
+              <strong>Melhoria dos Serviços:</strong> Analisar padrões de uso, desenvolver novos
+              produtos e melhorar a experiência do usuário;
+            </li>
+            <li>
+              <strong>Cumprimento Legal:</strong> Atender obrigações legais, regulatórias e de
+              compliance, incluindo relatórios às autoridades competentes;
+            </li>
+            <li>
+              <strong>Análise de Risco:</strong> Avaliar riscos creditícios, operacionais e de
+              conformidade relacionados às operações realizadas por meio da plataforma, para
+              suportar decisões de aprovação, acompanhamento e gestão de carteira.
+            </li>
           </ul>
 
           <div className={styles.divider}>
@@ -92,11 +114,30 @@ export default function PoliticaPrivacidade() {
             Podemos compartilhar suas informações nas seguintes situações:
           </p>
           <ul>
-            <li><strong>Instituições Financeiras Parceiras:</strong> Compartilhamos informações com bancos, securitizadoras e outras instituições financeiras parceiras para processar operações de securitização e antecipação de recebíveis;</li>
-            <li><strong>Prestadores de Serviços:</strong> Terceirizamos serviços para provedores que nos auxiliam na operação (processamento de pagamentos, análise de crédito, tecnologia, segurança);</li>
-            <li><strong>Autoridades Reguladoras:</strong> Quando exigido por lei ou por autoridades competentes, incluindo Banco Central do Brasil, CVM e Receita Federal;</li>
-            <li><strong>Compliance e Prevenção de Fraudes:</strong> Compartilhamos informações com serviços de verificação de identidade e prevenção de fraudes;</li>
-            <li><strong>Com seu Consentimento:</strong> Em outras situações, quando você nos der consentimento explícito.</li>
+            <li>
+              <strong>Instituições Parceiras:</strong> Compartilhamos informações com bancos,
+              securitizadoras, fundos de investimento, instituições de pagamento e demais
+              instituições financeiras ou equiparadas parceiras, que são responsáveis pela
+              estruturação, formalização e liquidação das operações financeiras realizadas por
+              meio da plataforma;
+            </li>
+            <li>
+              <strong>Prestadores de Serviços:</strong> Terceirizamos serviços para provedores que
+              nos auxiliam na operação (processamento de pagamentos, análise de crédito,
+              tecnologia, segurança);
+            </li>
+            <li>
+              <strong>Autoridades Reguladoras:</strong> Quando exigido por lei ou por autoridades
+              competentes, incluindo Banco Central do Brasil, CVM e Receita Federal;
+            </li>
+            <li>
+              <strong>Compliance e Prevenção de Fraudes:</strong> Compartilhamos informações com
+              serviços de verificação de identidade e prevenção de fraudes;
+            </li>
+            <li>
+              <strong>Com seu Consentimento:</strong> Em outras situações, quando você nos der
+              consentimento explícito.
+            </li>
           </ul>
 
           <p>
