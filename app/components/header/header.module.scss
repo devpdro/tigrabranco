@@ -14,8 +14,8 @@
 
   @media (max-width: 768px) {
     min-height: 110vh;
-    margin: 12px 12px;
-    border-radius: 12px;
+    margin: 0;
+    border-radius: 0;
   }
 }
 
@@ -31,11 +31,10 @@
   @media (max-width: 1024px) {
     padding: 140px 60px 60px;
   }
-
   @media (max-width: 768px) {
-    padding: 120px 32px 48px;
+    padding: 90px 24px 40px;
   }
-}
+} 
 
 .heroContent {
   max-width: 800px;
@@ -122,6 +121,7 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: stretch;
     width: 100%;
     gap: 0.75rem;
     justify-content: center;

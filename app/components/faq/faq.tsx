@@ -9,34 +9,36 @@ import styles from "./faq.module.scss";
 
 const faqItems = [
   {
-    id: 1,
-    question: "O que é uma Securitizadora e como ela funciona?",
-    answer:
-      "Uma Securitizadora é uma instituição financeira autorizada pela CVM que transforma ativos (como recebíveis, contratos e créditos) em títulos negociáveis no mercado de capitais. Ela funciona adquirindo esses ativos de empresas, criando uma estrutura jurídica segura e emitindo títulos lastreados nesses ativos, permitindo que investidores financiem operações de forma segura e regulamentada.",
-  },
-  {
     id: 2,
-    question: "Quais são os benefícios de trabalhar com uma Securitizadora?",
+    question: "Como estruturar melhor sua securitizadora ou operação de crédito?",
     answer:
-      "Os principais benefícios incluem: acesso a capital de forma mais rápida e eficiente, taxas competitivas comparadas a outras modalidades de crédito, segurança jurídica através de estruturas regulamentadas pela CVM, diversificação de fontes de financiamento, melhoria do fluxo de caixa através da antecipação de recebíveis, e possibilidade de estruturar operações customizadas para diferentes necessidades do negócio.",
+      "O ponto de partida é ter clareza sobre qual tipo de crédito ou recebível você quer trabalhar, definir bem o perfil de cliente, estabelecer políticas de crédito objetivas e criar fluxos padronizados de análise, formalização e cobrança. A partir daí, ajudamos você a traduzir essa visão em processos, integrações e controles dentro da nossa infraestrutura, para que a operação seja organizada desde o início.",
   },
   {
     id: 3,
-    question: "Quanto tempo leva para estruturar uma operação de securitização?",
+    question: "Quais passos para otimizar operações financeiras que já estão rodando?",
     answer:
-      "Com nossa estrutura já pronta e processos otimizados, é possível estruturar uma operação em até 3 dias ou menos. O tempo pode variar conforme a complexidade da operação, volume de ativos e necessidade de customização, mas nossa equipe trabalha de forma ágil para garantir agilidade sem comprometer a segurança jurídica e a qualidade da estruturação.",
-  },
-  {
-    id: 4,
-    question: "Quais tipos de ativos podem ser securitizados?",
-    answer:
-      "Podemos securitizar diversos tipos de ativos, incluindo: recebíveis de vendas a prazo, contratos de prestação de serviços, créditos de cartão de crédito, contratos de aluguel, fluxos de caixa futuros, debêntures, notas comerciais e outros créditos que gerem fluxo de pagamento futuro. Nossa equipe avalia cada caso para determinar a viabilidade e a melhor estrutura para cada tipo de ativo.",
+      "Começamos revisando seus indicadores-chave, como inadimplência, prazos médios, concentração de risco e gargalos operacionais. Com base nisso, sugerimos ajustes em políticas de crédito, automações de aprovação, fluxos de pagamentos, conciliação e rotinas de acompanhamento da carteira, usando nossa infraestrutura para reduzir retrabalho e dar mais previsibilidade ao resultado.",
   },
   {
     id: 5,
-    question: "Como é garantida a segurança jurídica das operações?",
+    question:
+      "Não tenho tudo pronto ainda. Em que momento faz sentido começar a usar a plataforma?",
     answer:
-      "A segurança jurídica é garantida através de: estruturação conforme regulamentação da CVM, separação patrimonial dos ativos (isolamento de risco), auditorias e due diligence rigorosos, contratos padronizados e revisados por equipe jurídica especializada, acompanhamento contínuo das operações, e compliance com todas as normas do mercado de capitais brasileiro. Nossa estrutura é desenhada para proteger tanto os originadores quanto os investidores.",
+      "Você não precisa chegar com a operação totalmente desenhada. É suficiente ter clareza sobre o público que quer atender e o tipo de produto financeiro que deseja oferecer. A partir disso, ajudamos a organizar etapas, priorizar entregas, definir fluxos mínimos para começar e construir, passo a passo, uma operação sólida de crédito ou securitização, evitando decisões que possam travar o crescimento no futuro.",
+  },
+  {
+    id: 6,
+    question: "Como a Tigre Branco ajuda a reduzir riscos e erros operacionais?",
+    answer:
+      "Nossa infraestrutura já incorpora boas práticas de mercado em cadastro, análise de crédito, monitoramento de carteira, pagamentos e compliance, reduzindo a dependência de controles manuais dispersos. Além disso, apoiamos seus times na definição de rotinas, responsabilidades e alertas, o que diminui falhas operacionais, aumenta a rastreabilidade das decisões e fortalece a governança do negócio financeiro.",
+  },
+  {
+    id: 7,
+    question:
+      "Que resultados posso esperar ao estruturar minha operação com a Tigre Branco?",
+    answer:
+      "Os principais ganhos costumam aparecer em três frentes: mais velocidade para lançar ou ajustar produtos financeiros, mais controle sobre riscos e indicadores da carteira e mais eficiência operacional, com menos retrabalho e maior automação. Ao longo do tempo, isso se traduz em uma operação de crédito ou securitização mais previsível, escalável e preparada para aproveitar novas oportunidades de mercado.",
   },
 ];
 

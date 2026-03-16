@@ -11,17 +11,10 @@ export function Partners() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const partners = [
-    { name: "ABC Brasil", logo: IMAGES.ABC_BRASIL },
-    { name: "Safra", logo: IMAGES.SAFRA },
-    { name: "Emcash", logo: IMAGES.EMCASH },
-    { name: "XP", logo: IMAGES.XP },
-    { name: "Banco BV", logo: IMAGES.BANCO_BV },
-    { name: "BASF", logo: IMAGES.BASF },
-    { name: "MRV", logo: IMAGES.MRV },
-    { name: "Trademaster", logo: IMAGES.TRADEMASTER },
-    { name: "Itaú", logo: IMAGES.ITAU },
-    { name: "Nu", logo: IMAGES.NU },
-    { name: "Bradesco", logo: IMAGES.BRADESCO },
+    { name: "Celcoin", logo: IMAGES.CELCOIN },
+    { name: "Logo BMP", logo: IMAGES.LOGO_BMP },
+    { name: "Serasa", logo: IMAGES.SERASA },
+    { name: "Unico", logo: IMAGES.UNICO },
   ];
 
   // Duplicate the list to create seamless infinite scroll

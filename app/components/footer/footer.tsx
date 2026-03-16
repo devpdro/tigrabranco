@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +15,7 @@ interface FooterProps {
 
 export function Footer({ openContact }: FooterProps) {
   const whatsappLink =
-    "https://wa.me/5514991370807?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+    "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
 
   const handleSmoothScroll = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -77,20 +77,36 @@ export function Footer({ openContact }: FooterProps) {
             <h4 className={S.heading}>Sobre</h4>
             <ul className={S.list}>
               <li>
-                <Link href="#" className={S.link}>
+                <span className={S.linkStatic}>
                   <span>Programa de Parceria</span>
                   <span className={S.badge}>NOVO</span>
-                </Link>
+                </span>
               </li>
               <li>
-                <Link href="#" className={S.link}>
+                <span className={S.linkStatic}>
                   <span>Carreiras</span>
                   <span className={S.badge}>Estamos contratando!</span>
+                </span>
+              </li>
+              <li>
+                <a
+                  href="/apresentacao-institucional.pdf"
+                  className={S.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Apresentação Institucional</span>
+                  <span className={S.badge}>PDF</span>
+                </a>
+              </li>
+              <li>
+                <Link href="/about" className={S.link}>
+                  Quem somos
                 </Link>
               </li>
               <li>
                 <Link href="/termos" className={S.link}>
-                  Termos
+                  Termos de Uso
                 </Link>
               </li>
               <li>
@@ -123,27 +139,13 @@ export function Footer({ openContact }: FooterProps) {
         <div className={S.legal}>
           <div className={S.text}>
             <p>
-              A Tigra Branco é uma plataforma digital que atua como
-              correspondente bancário para facilitar o processo de contratação
-              de empréstimos. Como correspondente bancário, seguimos as
-              diretrizes do Banco Central do Brasil, nos termos da Resolução nº.
-              3.954 de 24 de fevereiro de 2011.
+              A Tigre Branco Pay é uma plataforma de infraestrutura tecnológica financeira (Finance as a Service), operada pela Tigre Branco Securitizadora S.A., que disponibiliza, via API e ambiente web, serviços de securitização de recebíveis, intermediação de operações de crédito, gestão de pagamentos, análise de risco e conformidade regulatória para empresas, fintechs, correspondentes bancários e investidores.
             </p>
             <p>
-              A análise de crédito e cálculo das taxas de juros dependem de
-              diversas informações, como seus dados financeiros, histórico de
-              crédito e prazo de pagamento. Toda avaliação será realizada
-              conforme a política de crédito da Instituição Financeira parceira.
-              Antes da contratação de qualquer serviço através de nossos
-              parceiros, você receberá todas as condições e informações
-              relativas ao empréstimo de forma completa e transparente,
-              incluindo impostos incidentes (IOF) e Custo Efetivo Total (CET).
+              A Tigre Branco não é instituição financeira e não realiza concessão direta de crédito ao consumidor final. Todas as operações financeiras intermediadas pela plataforma são estruturadas, formalizadas e liquidadas por instituições parceiras devidamente autorizadas e supervisionadas pelos órgãos competentes, incluindo Banco Central do Brasil e Comissão de Valores Mobiliários (CVM). A Tigre Branco atua como elo tecnológico e operacional entre originadores de crédito, estruturas de securitização e fontes de capital.
             </p>
             <p>
-              O atraso ou não pagamento de prestações do contrato de empréstimo
-              pessoal pode ter consequências legais, tais como a inclusão de
-              nome nos cadastros dos órgãos de proteção ao crédito, o protesto
-              de títulos e o ajuizamento de ações de cobrança.
+              O uso da plataforma está sujeito aos Termos de Serviço e à Política de Privacidade disponíveis neste site, elaborados em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018), a Resolução CVM nº 60/2021 e demais legislações aplicáveis ao mercado financeiro e de capitais. Informações completas sobre condições, encargos, Custo Efetivo Total (CET) e obrigações contratuais são disponibilizadas previamente à contratação de qualquer produto ou serviço.
             </p>
           </div>
         </div>

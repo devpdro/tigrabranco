@@ -1,0 +1,81 @@
+// ─── Section ──────────────────────────────────────────────────────
+.section {
+  background-color: #ffffff;
+  padding: 48px 24px;
+}
+
+// ─── Container ────────────────────────────────────────────────────
+.container {
+  max-width: 1280px;
+  padding: 0 1.075rem;
+  margin: 0 auto;
+}
+
+// ─── Two-column row: 70 / 30 ──────────────────────────────────────
+.row {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 20px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+// ─── Shared card ──────────────────────────────────────────────────
+.card {
+  background-color: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 168px;
+
+  @media (max-width: 480px) {
+    padding: 28px 24px;
+  }
+}
+
+// ─── Left card — big title ────────────────────────────────────────
+.cardTitle {
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  font-weight: 500;
+  color: #0f172a;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+// ─── Right card — icon ────────────────────────────────────────────
+.cardIcon {
+  color: var(--primary); // #02a657
+  line-height: 1;
+}
+
+// ─── Right card — uppercase label ────────────────────────────────
+.cardLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+// ─── Right card — subtitle ───────────────────────────────────────
+.cardSubtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.55;
+  margin: -12px 0 0; // tighten gap between label and subtitle
+}
+

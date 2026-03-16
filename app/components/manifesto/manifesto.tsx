@@ -18,8 +18,8 @@ export function Manifesto() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2>
-            Sua parceira estratégica para{" "}
-            <span className={styles.dimmed}>crescimento sustentável.</span>
+            O crédito sempre foi complexo.{" "}
+            <span className={styles.dimmed}>Nós construímos a tecnologia para organizá-lo.</span>
           </h2>
         </motion.div>
         <motion.div
@@ -29,16 +29,16 @@ export function Manifesto() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <p>
-            Simplificamos a complexidade financeira para que você possa focar
-            exclusivamente no que realmente importa: escalar o seu negócio.
-            Nossa plataforma une soluções inteligentes de crédito, gestão
-            eficiente e tecnologia de ponta para transformar desafios diários em
-            oportunidades reais de expansão. Esqueça processos lentos e
-            burocráticos; oferecemos a estrutura sólida que você precisa para
-            tomar decisões rápidas e assertivas.{" "}
+            A Tigre Branco Pay nasceu para ser o elo que faltava entre correspondentes
+            bancários, securitizadoras e investidores. Uma plataforma que organiza
+            operações de crédito, transforma empresários em operadores profissionais e
+            conecta capital a oportunidades reais. Acreditamos que crédito, quando usado
+            com responsabilidade, transforma vidas e impulsiona empresas. Por isso
+            desenvolvemos tecnologia que torna o mercado de crédito mais eficiente,
+            mais transparente e mais acessível.{" "}
             <span className={styles.strong}>
-              Potencialize sua operação com segurança jurídica, agilidade
-              financeira e transparência total.
+              Porque quando tecnologia, capital e pessoas se conectam da maneira certa,
+              novas oportunidades surgem. E é assim que mercados evoluem.
             </span>
           </p>
         </motion.div>

@@ -82,6 +82,24 @@
     }
   }
 
+  /* Variant 5: Dark (site dark — #0f172a) */
+  &.dark {
+    background-color: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+
+    &:hover {
+      background-color: #1e293b;
+      border-color: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
   /* Variant 4: Outline White (Transparent, White Border/Text) */
   &.outlineWhite {
     background-color: transparent;

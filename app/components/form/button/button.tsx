@@ -5,7 +5,7 @@ import S from "./button.module.scss";
 
 export type ButtonProps = {
   typeStyle?: "btn1" | "btn2" | "btn3" | "primary" | "secondary"; // Added new types, kept old for compatibility (will map)
-  variant?: "primary" | "secondary" | "white" | "outlineWhite"; // Preferred new prop
+  variant?: "primary" | "secondary" | "white" | "outlineWhite" | "dark"; // Preferred new prop
   size?: "sm" | "md" | "lg";
   label: string;
   width?:
@@ -52,6 +52,7 @@ const Button = ({
   else if (effectiveVariant === "secondary") styleClass = S.secondary;
   else if (effectiveVariant === "white") styleClass = S.white;
   else if (effectiveVariant === "outlineWhite") styleClass = S.outlineWhite;
+  else if (effectiveVariant === "dark") styleClass = S.dark;
 
   // Compatibility for explicit typeStyle usage if needed, but above logic covers btn1->primary, btn2->secondary
 

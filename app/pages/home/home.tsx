@@ -12,6 +12,7 @@ import {
   Workflow,
   Header,
   Manifesto,
+  DualCta,
   Navbar,
   ProcessTimeline,
   FAQ,
@@ -33,10 +34,13 @@ export default function Home() {
       
       {/* 3. PROPOSTA DE VALOR - Por que existimos */}
       <Manifesto />
-      
-      {/* 4. CALCULADORA/BENEFÍCIO - Mostre o valor tangível */}
+
+      {/* 6. CALCULADORA/BENEFÍCIO - Mostre o valor tangível */}
       <Business />
-      
+        
+      {/* 5. DUPLO CTA - Dois caminhos de conversão */}
+      <DualCta onOpenContact={() => setIsDrawerOpen(true)} />
+
       {/* 5. COMO FUNCIONA - Processo simplificado */}
       <Workflow />
       

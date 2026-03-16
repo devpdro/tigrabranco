@@ -20,8 +20,20 @@ import DIGITAÇÃO from "./DIGITAÇÃO.png";
 import BG_HEADER from "./BG_HEADER.png";
 import TIGRE from "./TIGRE.png";
 import CEOS from "./CEOS.jpg";
+import CELCOIN from "./CELCOIN.png";
+import LOGO_BMP from "./LOGO_BMP.png";
+import QITECH from "./QITECH.png";
+import SERASA from "./SERASA.webp";
+import UNICO from "./UNICO.png";
+import UY3 from "./UY3.png";
 
 export const IMAGES = {
+  CELCOIN,
+  LOGO_BMP,
+  QITECH,
+  SERASA,
+  UNICO,
+  UY3,
   LOGO,
   LOGO_PRETO,
   DASHBOARD,

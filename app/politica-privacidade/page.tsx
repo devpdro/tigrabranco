@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Navbar } from "@/app/components";
 import styles from "./politica-privacidade.module.scss";
@@ -8,218 +8,248 @@ export default function PoliticaPrivacidade() {
     <>
       <Navbar forceScrolled />
       <div className={styles.container}>
-        <div className={styles.badge}>Atualizado 21/12/2024</div>
-        <h1 className={styles.title}>POLÍTICA DE PRIVACIDADE DO TIGRE BRANCO PAY</h1>
-        
+        <div className={styles.badge}>Atualizado em março de 2025</div>
+        <h1 className={styles.title}>POLÍTICA DE PRIVACIDADE E PROTEÇÃO DE DADOS — TIGRE BRANCO PAY</h1>
+
         <div className={styles.content}>
           <p>
-            A Tigre Branco Securitizadora S.A. (&quot; <strong>Tigre Branco</strong> &quot;, &quot; <strong>nós</strong> &quot; ou &quot; <strong>nos</strong> &quot;) é uma securitizadora autorizada que oferece serviços de antecipação de recebíveis e securitização para empresas. Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e protegemos suas informações pessoais e empresariais quando você utiliza nosso site (https://tigrebranco.com.br) ou nossa plataforma digital para solicitar ou contratar nossos serviços.
+            A Tigre Branco Securitizadora S.A. (&quot;Tigre Branco&quot;, &quot;nós&quot; ou &quot;nos&quot;) opera a plataforma Tigre Branco Pay — solução de infraestrutura tecnológica financeira (Finance as a Service — FaaS) voltada a empresas, fintechs, correspondentes bancários e investidores que atuam no mercado de crédito e securitização. Esta Política de Privacidade e Proteção de Dados (&quot;Política&quot;) descreve de forma transparente como coletamos, utilizamos, armazenamos, compartilhamos e protegemos dados corporativos e pessoais quando você acessa o site https://tigrebranco.com.br ou utiliza nossa Plataforma.
           </p>
 
           <p>
-            Ao acessar nosso site, utilizar nossa plataforma ou contratar nossos serviços, você concorda com os termos desta Política de Privacidade. Esta Política está em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e demais legislações aplicáveis. A Tigre Branco reserva-se o direito de atualizar esta Política periodicamente, e as alterações serão publicadas nesta página. Recomendamos que você consulte esta Política regularmente para estar ciente de como protegemos suas informações.
+            Esta Política está em plena conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018) e demais normas aplicáveis ao setor financeiro e tecnológico. Ao acessar o site ou contratar nossos serviços, você declara ter lido e concordado com as práticas aqui descritas. Recomendamos a leitura periódica desta Política, cujas atualizações serão publicadas nesta página com indicação da data de revisão.
           </p>
 
           <p className={styles.alert}>
-            <strong>LEIA ESTA POLÍTICA ATENTAMENTE PARA GARANTIR QUE VOCÊ ENTENDA CADA DISPOSIÇÃO.</strong> Esta Política descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais e empresariais em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e demais legislações aplicáveis.
+            LEIA ESTA POLÍTICA NA ÍNTEGRA. Ela descreve como seus dados são tratados, com quem podem ser compartilhados, quais são seus direitos como titular e como exercê-los. O uso da Plataforma implica aceite destas condições.
           </p>
 
           <div className={styles.divider}>
             <div className={styles.dividerSymbol}></div>
           </div>
-          <h2>1. Informações que Coletamos</h2>
-          
-          <h3>1.1. Informações da Empresa</h3>
-          <p>
-            Ao solicitar uma Conta e utilizar nossos Serviços, coletamos informações sobre sua empresa, incluindo:
-          </p>
-          <ul>
-            <li>Nome comercial registrado e estado de constituição;</li>
-            <li>Endereço comercial e dados de contato;</li>
-            <li>Detalhes de propriedade e estrutura societária;</li>
-            <li>A natureza do negócio e informações comerciais;</li>
-            <li>Certificado de registro da empresa, comprovante de endereço e outras informações documentais utilizadas para verificação;</li>
-            <li>Informações financeiras, incluindo extratos bancários, demonstrações financeiras e histórico de recebíveis;</li>
-            <li>Dados sobre operações de securitização e antecipação de recebíveis.</li>
-          </ul>
+          <h2>1. Quem é o Controlador dos Dados</h2>
 
-          <h3>1.2. Informações Pessoais</h3>
           <p>
-            Coletamos informações pessoais dos Administradores, Usuários e beneficiários finais, incluindo:
+            O controlador responsável pelo tratamento dos dados pessoais e corporativos coletados por meio do site e da Plataforma é a Tigre Branco Securitizadora S.A., inscrita no CNPJ sob o nº [CNPJ], com sede em [endereço completo], São Paulo — SP. Para contato direto com a área responsável pelo tratamento de dados, utilize o canal: <a href="mailto:privacidade@tigrebranco.com.br">privacidade@tigrebranco.com.br</a>.
           </p>
-          <ul>
-            <li>Nome completo, data de nascimento e informações de contato;</li>
-            <li>Documento de identificação pessoal (RG, CPF, CNH);</li>
-            <li>Endereço residencial e comprovante de endereço;</li>
-            <li>Informações bancárias e financeiras pessoais, quando aplicável;</li>
-            <li>Dados de acesso à Plataforma (credenciais, logs de acesso).</li>
-          </ul>
-
-          <h3>1.3. Informações de Uso</h3>
-          <p>
-            Coletamos automaticamente informações sobre como você utiliza nossos Serviços, incluindo:
-          </p>
-          <ul>
-            <li>Dados de navegação no Site e na Plataforma;</li>
-            <li>Logs de transações e operações realizadas;</li>
-            <li>Informações sobre dispositivos utilizados (IP, tipo de navegador, sistema operacional);</li>
-            <li>Cookies e tecnologias similares de rastreamento.</li>
-          </ul>
 
           <div className={styles.divider}>
             <div className={styles.dividerSymbol}></div>
           </div>
-          <h2>2. Como Utilizamos suas Informações</h2>
-          
+          <h2>2. Dados que Coletamos</h2>
+
+          <h3>2.1. Dados Corporativos</h3>
           <p>
-            Utilizamos as informações coletadas para os seguintes fins:
+            Para abertura de Conta e operação na Plataforma, coletamos informações sobre a pessoa jurídica, incluindo:
           </p>
           <ul>
-            <li><strong>Prestação de Serviços:</strong> Processar solicitações de conta, avaliar elegibilidade para securitização e antecipação de recebíveis, executar transações e fornecer suporte ao cliente;</li>
-            <li><strong>Verificação e Segurança:</strong> Verificar identidade, prevenir fraudes, lavagem de dinheiro e outras atividades ilegais;</li>
-            <li><strong>Comunicação:</strong> Enviar notificações sobre sua Conta, transações, alterações nos Serviços e comunicações comerciais relevantes;</li>
-            <li><strong>Melhoria dos Serviços:</strong> Analisar padrões de uso, desenvolver novos produtos e melhorar a experiência do usuário;</li>
-            <li><strong>Cumprimento Legal:</strong> Atender obrigações legais, regulatórias e de compliance, incluindo relatórios às autoridades competentes;</li>
-            <li><strong>Análise de Risco:</strong> Avaliar riscos creditícios e operacionais para decisões de aprovação e gestão de carteira.</li>
+            <li>Razão social, nome fantasia, CNPJ e inscrições estaduais ou municipais;</li>
+            <li>Endereço comercial e dados de contato institucional;</li>
+            <li>Estrutura societária, quadro de sócios e beneficiários finais;</li>
+            <li>Documentos de constituição, certidões de regularidade e comprovantes de registro;</li>
+            <li>Informações financeiras e operacionais relevantes para avaliação de risco e onboarding regulatório;</li>
+            <li>Dados sobre carteiras de crédito, recebíveis e operações de securitização.</li>
+          </ul>
+
+          <h3>2.2. Dados Pessoais de Representantes e Usuários</h3>
+          <p>
+            Coletamos dados pessoais dos Administradores, Usuários autorizados e beneficiários finais, incluindo:
+          </p>
+          <ul>
+            <li>Nome completo, data de nascimento, CPF e demais documentos de identificação;</li>
+            <li>Endereço residencial e comprovante de residência;</li>
+            <li>Dados de contato (e-mail, telefone);</li>
+            <li>Informações bancárias, quando necessário para operações específicas;</li>
+            <li>Registros de acesso à Plataforma (credenciais, logs, sessões, endereço IP).</li>
+          </ul>
+
+          <h3>2.3. Dados de Uso e Navegação</h3>
+          <p>
+            Coletamos automaticamente dados técnicos sobre a interação com o site e a Plataforma, incluindo:
+          </p>
+          <ul>
+            <li>Endereço IP, tipo e versão de navegador, sistema operacional e dispositivo;</li>
+            <li>Páginas visitadas, tempo de sessão e fluxos de navegação;</li>
+            <li>Logs de transações, consultas e operações realizadas na Plataforma;</li>
+            <li>Cookies, pixels e tecnologias similares de rastreamento de sessão e comportamento.</li>
           </ul>
 
           <div className={styles.divider}>
             <div className={styles.dividerSymbol}></div>
           </div>
-          <h2>3. Compartilhamento de Informações</h2>
-          
+          <h2>3. Finalidades e Bases Legais do Tratamento</h2>
+
           <p>
-            Podemos compartilhar suas informações nas seguintes situações:
+            Tratamos os dados coletados com fundamento nas bases legais previstas na LGPD, para as seguintes finalidades:
           </p>
           <ul>
-            <li><strong>Instituições Financeiras Parceiras:</strong> Compartilhamos informações com bancos, securitizadoras e outras instituições financeiras parceiras para processar operações de securitização e antecipação de recebíveis;</li>
-            <li><strong>Prestadores de Serviços:</strong> Terceirizamos serviços para provedores que nos auxiliam na operação (processamento de pagamentos, análise de crédito, tecnologia, segurança);</li>
-            <li><strong>Autoridades Reguladoras:</strong> Quando exigido por lei ou por autoridades competentes, incluindo Banco Central do Brasil, CVM e Receita Federal;</li>
-            <li><strong>Compliance e Prevenção de Fraudes:</strong> Compartilhamos informações com serviços de verificação de identidade e prevenção de fraudes;</li>
-            <li><strong>Com seu Consentimento:</strong> Em outras situações, quando você nos der consentimento explícito.</li>
-          </ul>
-
-          <p>
-            Não vendemos suas informações pessoais para terceiros para fins de marketing.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>4. Segurança das Informações</h2>
-          
-          <p>
-            A Tigre Branco utiliza medidas de segurança físicas, administrativas e técnicas comercialmente razoáveis para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição, incluindo:
-          </p>
-          <ul>
-            <li>Criptografia de dados em trânsito e em repouso;</li>
-            <li>Controles de acesso baseados em função e autenticação multifator;</li>
-            <li>Monitoramento contínuo de segurança e detecção de ameaças;</li>
-            <li>Treinamento regular de funcionários sobre proteção de dados;</li>
-            <li>Auditorias e testes de segurança periódicos.</li>
-          </ul>
-
-          <p>
-            No entanto, nenhum método de transmissão pela internet ou armazenamento eletrônico é 100% seguro. Embora nos esforcemos para proteger suas informações, não podemos garantir segurança absoluta.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>5. Seus Direitos sob a LGPD</h2>
-          
-          <p>
-            Conforme a Lei Geral de Proteção de Dados, você tem os seguintes direitos:
-          </p>
-          <ul>
-            <li><strong>Confirmação e Acesso:</strong> Confirmar a existência de tratamento de dados e acessar seus dados pessoais;</li>
-            <li><strong>Correção:</strong> Solicitar a correção de dados incompletos, inexatos ou desatualizados;</li>
-            <li><strong>Anonimização, Bloqueio ou Eliminação:</strong> Solicitar a anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com a LGPD;</li>
-            <li><strong>Portabilidade:</strong> Solicitar a portabilidade dos dados a outro fornecedor de serviço;</li>
-            <li><strong>Eliminação:</strong> Solicitar a eliminação dos dados pessoais tratados com base em consentimento;</li>
-            <li><strong>Informação:</strong> Obter informações sobre entidades públicas e privadas com as quais compartilhamos dados;</li>
-            <li><strong>Revogação de Consentimento:</strong> Revogar seu consentimento a qualquer momento.</li>
-          </ul>
-
-          <p>
-            Para exercer seus direitos, entre em contato conosco através do e-mail: <a href="mailto:privacidade@tigrebranco.com.br">privacidade@tigrebranco.com.br</a> ou pelo telefone: (11) 4000-0000.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>6. Retenção de Dados</h2>
-          
-          <p>
-            Mantemos suas informações pessoais e empresariais pelo tempo necessário para cumprir os fins descritos nesta Política, salvo quando a retenção for exigida ou permitida por lei. Após o término do relacionamento comercial, podemos reter certas informações por períodos determinados por obrigações legais, regulatórias ou para fins de defesa em processos judiciais.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>7. Cookies e Tecnologias Similares</h2>
-          
-          <p>
-            Utilizamos cookies e tecnologias similares para melhorar sua experiência, analisar o uso do Site e personalizar conteúdo. Você pode gerenciar preferências de cookies através das configurações do seu navegador. Note que desabilitar cookies pode afetar a funcionalidade de alguns recursos do Site.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>8. Transferência Internacional de Dados</h2>
-          
-          <p>
-            Suas informações podem ser transferidas e processadas em países diferentes do Brasil. Ao utilizar nossos Serviços, você consente com essa transferência. Garantimos que implementamos salvaguardas adequadas para proteger suas informações em conformidade com a LGPD.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>9. Menores de Idade</h2>
-          
-          <p>
-            Nossos Serviços são destinados exclusivamente a empresas e não coletamos intencionalmente informações de menores de 18 anos. Se tomarmos conhecimento de que coletamos informações de um menor sem o consentimento adequado, tomaremos medidas para excluir essas informações.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>10. Alterações nesta Política</h2>
-          
-          <p>
-            Podemos atualizar esta Política periodicamente para refletir mudanças em nossas práticas ou por razões legais, operacionais ou regulatórias. Notificaremos você sobre alterações materiais através do Site ou por e-mail. A data da última atualização está indicada no topo desta Política.
-          </p>
-
-          <div className={styles.divider}>
-            <div className={styles.dividerSymbol}></div>
-          </div>
-          <h2>11. Contato</h2>
-          
-          <p>
-            Se você tiver dúvidas, preocupações ou solicitações relacionadas a esta Política de Privacidade ou ao tratamento de seus dados pessoais, entre em contato conosco:
-          </p>
-          <ul>
-            <li><strong>E-mail:</strong> <a href="mailto:privacidade@tigrebranco.com.br">privacidade@tigrebranco.com.br</a></li>
-            <li><strong>Telefone:</strong> (11) 4000-0000</li>
-            <li><strong>Endereço:</strong> Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100</li>
-            <li><strong>Encarregado de Dados (DPO):</strong> dpo@tigrebranco.com.br</li>
+            <li>
+              Prestação e operação dos Serviços (execução contratual): Processamento de cadastros, avaliação de elegibilidade, operacionalização de funcionalidades da Plataforma (crédito, securitização, pagamentos, compliance) e suporte técnico e operacional;
+            </li>
+            <li>
+              Prevenção a fraudes e segurança (legítimo interesse e obrigação legal): Verificação de identidade, análise de risco operacional e creditício, prevenção à lavagem de dinheiro (PLD/FT) e a outros crimes financeiros, em conformidade com a regulamentação do BACEN e COAF;
+            </li>
+            <li>
+              Cumprimento de obrigações legais e regulatórias (obrigação legal): Reporte às autoridades competentes (BACEN, CVM, Receita Federal, COAF), conservação de registros pelo prazo legal, e adequação às normas do setor financeiro e de capitais;
+            </li>
+            <li>
+              Comunicação institucional (legítimo interesse ou consentimento): Envio de notificações operacionais, alertas de segurança, informações sobre atualizações da Plataforma e comunicações comerciais relevantes;
+            </li>
+            <li>
+              Análise e melhoria de produto (legítimo interesse): Avaliação de padrões de uso, desenvolvimento de novas funcionalidades e aprimoramento da experiência na Plataforma, com base em dados anonimizados ou agregados.
+            </li>
           </ul>
 
           <div className={styles.divider}>
             <div className={styles.dividerSymbol}></div>
           </div>
-          <h2>12. Lei Aplicável</h2>
-          
+          <h2>4. Compartilhamento de Dados</h2>
+
           <p>
-            Esta Política será regida e interpretada de acordo com as leis da República Federativa do Brasil, especialmente a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e demais legislações aplicáveis. Qualquer disputa relacionada a esta Política será submetida à jurisdição dos tribunais da Comarca de São Paulo, Estado de São Paulo.
+            Os dados tratados pela Tigre Branco poderão ser compartilhados com terceiros nas seguintes hipóteses:
+          </p>
+          <ul>
+            <li>
+              Parceiros Financeiros: Bancos, securitizadoras, fundos de investimento em direitos creditórios (FIDCs), instituições de pagamento e demais entidades autorizadas e reguladas, responsáveis pela formalização, estruturação e liquidação das operações intermediadas pela Plataforma;
+            </li>
+            <li>
+              Provedores de Serviços e Suboperadores: Empresas contratadas para suporte tecnológico, processamento de pagamentos, análise de crédito, segurança da informação e serviços de infraestrutura em nuvem, vinculados por cláusulas contratuais de confidencialidade e proteção de dados;
+            </li>
+            <li>
+              Autoridades Públicas e Reguladoras: Banco Central do Brasil, CVM, COAF, Receita Federal e demais órgãos competentes, quando exigido por lei, regulamento, decisão judicial ou administrativa;
+            </li>
+            <li>
+              Bureaus de Crédito e Prevenção a Fraudes: Serviços especializados em verificação de identidade, análise de risco e PLD/FT, para fins de conformidade e segurança operacional;
+            </li>
+            <li>
+              Sucessores e Adquirentes: Em operações de fusão, cisão, incorporação, venda de ativos ou reestruturação societária, os dados poderão ser transferidos ao adquirente, que assumirá as obrigações desta Política;
+            </li>
+            <li>
+              Com consentimento do titular: Em situações específicas não contempladas acima, mediante autorização expressa do titular dos dados.
+            </li>
+          </ul>
+
+          <p>
+            A Tigre Branco não comercializa dados pessoais com terceiros para fins de marketing ou publicidade.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>5. Segurança da Informação</h2>
+
+          <p>
+            A Tigre Branco adota padrões rigorosos de segurança da informação para proteger os dados tratados contra acessos não autorizados, vazamentos, alterações indevidas e destruição, incluindo:
+          </p>
+          <ul>
+            <li>Criptografia de dados em trânsito (TLS) e em repouso (AES-256);</li>
+            <li>Autenticação multifator (MFA) e controle de acesso baseado em perfis e privilégios mínimos;</li>
+            <li>Monitoramento contínuo de segurança, detecção de intrusões e resposta a incidentes;</li>
+            <li>Auditorias periódicas de segurança e testes de vulnerabilidade;</li>
+            <li>Treinamentos regulares da equipe em proteção de dados e boas práticas de segurança;</li>
+            <li>Planos de continuidade de negócios e recuperação de desastres.</li>
+          </ul>
+
+          <p>
+            Em caso de incidente de segurança que possa causar risco ou dano aos titulares, a Tigre Branco comunicará a ocorrência à Autoridade Nacional de Proteção de Dados (ANPD) e, quando necessário, aos titulares afetados, nos termos da LGPD.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>6. Seus Direitos como Titular</h2>
+
+          <p>
+            Nos termos da LGPD, você tem os seguintes direitos em relação aos seus dados pessoais:
+          </p>
+          <ul>
+            <li>Confirmação e acesso: Saber se tratamos seus dados e acessar uma cópia dos dados que possuímos sobre você;</li>
+            <li>Correção: Solicitar a atualização ou retificação de dados incompletos, inexatos ou desatualizados;</li>
+            <li>Anonimização, bloqueio ou eliminação: Requerer a anonimização, o bloqueio ou a exclusão de dados desnecessários, excessivos ou tratados em desconformidade com a LGPD;</li>
+            <li>Portabilidade: Solicitar a portabilidade dos seus dados para outro fornecedor de serviço ou produto, observadas as regulamentações aplicáveis;</li>
+            <li>Revogação do consentimento: Retirar o consentimento dado para tratamentos baseados nessa base legal, a qualquer momento, sem prejuízo da licitude dos tratamentos realizados anteriormente;</li>
+            <li>Oposição: Se opor ao tratamento realizado com base em legítimo interesse, quando não houver justificativa adequada;</li>
+            <li>Informação sobre compartilhamentos: Obter informações sobre as entidades públicas e privadas com as quais compartilhamos seus dados;</li>
+            <li>Revisão de decisões automatizadas: Solicitar a revisão de decisões tomadas com base exclusivamente em tratamento automatizado de dados.</li>
+          </ul>
+
+          <p>
+            Para exercer seus direitos, entre em contato com o nosso Encarregado de Proteção de Dados (DPO) pelo e-mail <a href="mailto:privacidade@tigrebranco.com.br">privacidade@tigrebranco.com.br</a>. Responderemos sua solicitação no prazo de até 15 (quinze) dias corridos.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>7. Retenção e Descarte de Dados</h2>
+
+          <p>
+            Os dados pessoais e corporativos são retidos pelo período necessário ao cumprimento das finalidades descritas nesta Política, respeitando os prazos mínimos exigidos pela legislação aplicável. Para operações financeiras e registros contábeis, a retenção pode se estender por até 10 (dez) anos, conforme obrigações do setor financeiro. Após o término do prazo de retenção, os dados serão excluídos de forma segura ou anonimizados de modo irreversível.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>8. Cookies e Tecnologias de Rastreamento</h2>
+
+          <p>
+            Utilizamos cookies próprios e de terceiros para fins de funcionamento do site, análise de desempenho, personalização de conteúdo e segurança. Os cookies podem ser classificados como essenciais (necessários para o funcionamento básico), analíticos (dados de navegação anonimizados) e de funcionalidade (preferências do usuário). Você pode gerenciar e desabilitar cookies por meio das configurações do seu navegador. A desativação de cookies essenciais pode comprometer o funcionamento de algumas funcionalidades do site.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>9. Transferência Internacional de Dados</h2>
+
+          <p>
+            Alguns de nossos provedores de infraestrutura tecnológica estão sediados fora do Brasil, o que pode implicar a transferência de dados para servidores localizados no exterior. Nessas situações, a Tigre Branco adota as salvaguardas exigidas pela LGPD, incluindo cláusulas contratuais específicas de proteção de dados e verificação de que os países de destino oferecem nível de proteção adequado ou equivalente ao previsto na legislação brasileira.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>10. Serviços Exclusivamente B2B</h2>
+
+          <p>
+            A Plataforma Tigre Branco Pay é destinada exclusivamente a pessoas jurídicas que atuam no mercado financeiro, de crédito ou tecnologia. Não coletamos intencionalmente dados pessoais de menores de 18 anos. Caso identifiquemos a coleta inadvertida de dados de menores, tomaremos as medidas necessárias para exclusão imediata dessas informações.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>11. Atualizações desta Política</h2>
+
+          <p>
+            Esta Política poderá ser atualizada periodicamente para refletir mudanças regulatórias, operacionais ou de produto. Alterações relevantes serão comunicadas por meio do site ou do e-mail cadastrado, com indicação da data de revisão no topo desta página. Recomendamos a consulta periódica deste documento.
+          </p>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>12. Encarregado de Dados (DPO) e Contato</h2>
+
+          <p>
+            Para dúvidas, solicitações ou exercício de direitos relacionados a esta Política ou ao tratamento de seus dados, entre em contato com nossa equipe responsável:
+          </p>
+          <ul>
+            <li>Encarregado de Proteção de Dados (DPO): <a href="mailto:privacidade@tigrebranco.com.br">privacidade@tigrebranco.com.br</a></li>
+            <li>E-mail geral: <a href="mailto:contato@tigrebranco.com.br">contato@tigrebranco.com.br</a></li>
+            <li>Site: https://tigrebranco.com.br</li>
+          </ul>
+
+          <div className={styles.divider}>
+            <div className={styles.dividerSymbol}></div>
+          </div>
+          <h2>13. Lei Aplicável</h2>
+
+          <p>
+            Esta Política é regida pelas leis da República Federativa do Brasil, com especial observância da LGPD (Lei nº 13.709/2018), da Lei nº 14.430/2022, das Resoluções do BACEN e da CVM aplicáveis, e das normas do COAF. Eventuais controvérsias serão submetidas ao foro da Comarca de São Paulo, Estado de São Paulo.
           </p>
 
           <p className={styles.footer}>
-            Ao utilizar nossos Serviços, você reconhece que leu e compreendeu esta Política de Privacidade e concorda com o tratamento de suas informações conforme descrito acima.
+            Ao utilizar a Plataforma Tigre Branco Pay, você confirma que leu, compreendeu e concorda com os termos desta Política de Privacidade e Proteção de Dados.
           </p>
         </div>
       </div>
     </>
   );
 }
-

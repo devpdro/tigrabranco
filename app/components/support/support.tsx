@@ -62,11 +62,12 @@ export function Support() {
               <MessageSquareQuote />
             </div>
             <h3 className={S["card-title"]}>
-              Consultoria Especializada em Crédito
+              Suporte estratégico para sua operação
             </h3>
             <p className={S["card-description"]}>
-              Nossa equipe de especialistas está pronta para estruturar suas
-              operações de antecipação com agilidade e segurança jurídica.
+              Apoiamos você na organização de fluxos, políticas e rotinas da
+              operação financeira, conectando o uso do sistema próprio às
+              necessidades reais do seu negócio.
             </p>
           </motion.div>
 
@@ -84,10 +85,11 @@ export function Support() {
             <div className={S["icon-wrapper"]}>
               <Gift />
             </div>
-            <h3 className={S["card-title"]}>Condições Comerciais Exclusivas</h3>
+            <h3 className={S["card-title"]}>Suporte ao uso da plataforma</h3>
             <p className={S["card-description"]}>
-              Acesse taxas competitivas e soluções personalizadas para otimizar
-              o fluxo de caixa e impulsionar o crescimento do seu negócio.
+              Esclarecemos dúvidas e orientamos quanto às funcionalidades e
+              boas práticas de uso, para que sua equipe aproveite ao máximo a
+              plataforma já pronta no dia a dia.
             </p>
           </motion.div>
 

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/app/components/form";
 import { IMAGES } from "@/app/assets/images";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,33 +14,12 @@ interface NavbarProps {
   onOpenContact?: () => void;
 }
 
-export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(forceScrolled);
+export function Navbar({ onOpenContact }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (forceScrolled) {
-      return;
-    }
-
-    const handleScroll = () => {
-      // Detecta quando saiu do header (assumindo que o header tem aproximadamente 100vh)
-      const headerHeight = window.innerHeight;
-      const scrollPosition = window.scrollY;
-      
-      if (scrollPosition > headerHeight - 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [forceScrolled]);
+  const isScrolled = true;
 
   const whatsappLink =
-    "https://wa.me/5514991370807?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+    "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
 
   const handleSmoothScroll = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -66,36 +46,34 @@ export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
       <div className={styles.container}>
         {/* Logo and Navigation Links - Left Side */}
         <div className={styles.leftSection}>
-          <div 
-            className={styles.logo}
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            style={{ cursor: "pointer" }}
-          >
+          <Link href="/" className={styles.logo}>
             <Image
               src={isScrolled ? IMAGES.LOGO_PRETO : IMAGES.LOGO}
               alt="Tigre Branco Pay"
-              width={isScrolled ? 200 : 320}
-              height={isScrolled ? 48 : 88}
+              width={300}
+              height={80}
               className={styles.logoImage}
+              style={{ width: "160px", height: "auto" }}
             />
-          </div>
+          </Link>
 
           {/* Navigation Links - Desktop */}
           <div className={styles.navLinks}>
+            <span
+              className={styles.navLink}
+              onClick={() => handleSmoothScroll("solucoes")}
+            >
+              Plataforma
+            </span>
             <span
               className={styles.navLink}
               onClick={() => handleSmoothScroll("workflow")}
             >
               Como funciona
             </span>
-            <span
-              className={styles.navLink}
-              onClick={() => handleSmoothScroll("solucoes")}
-            >
-              Soluções
-            </span>
+            <Link href="/about" className={styles.navLink}>
+              A empresa
+            </Link>
           </div>
         </div>
 
@@ -154,12 +132,6 @@ export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
             >
               <div className={styles.mobileMenuContent}>
                 <div className={styles.mobileMenuHeader}>
-                  <span
-                    className={styles.mobileNavLinkTop}
-                    onClick={() => handleNavClick("workflow")}
-                  >
-                    Como funciona
-                  </span>
                   <button
                     className={styles.mobileMenuClose}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -174,8 +146,21 @@ export function Navbar({ forceScrolled = false, onOpenContact }: NavbarProps) {
                     className={styles.mobileNavLink}
                     onClick={() => handleNavClick("solucoes")}
                   >
-                    Soluções
+                    Plataforma
                   </span>
+                  <span
+                    className={styles.mobileNavLink}
+                    onClick={() => handleNavClick("workflow")}
+                  >
+                    Como funciona
+                  </span>
+                  <Link
+                    href="/about"
+                    className={styles.mobileNavLink}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    A empresa
+                  </Link>
                 </div>
                 <div className={styles.mobileActions}>
                   <Button

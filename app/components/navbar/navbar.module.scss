@@ -35,8 +35,9 @@
     right: 0;
     max-width: 100%;
     border-radius: 0;
+    padding: 12px 40px;
     background-color: #f8fafb;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -53,11 +54,11 @@
 .leftSection {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
   flex: 1;
 
   @media (max-width: 1024px) {
-    gap: 32px;
+    gap: 28px;
   }
 
   @media (max-width: 768px) {
@@ -69,50 +70,38 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  line-height: 0;
 }
 
 .logoImage {
-  width: 100px;
-  transition: width 0.3s ease;
+  display: block;
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
 
-  @media (max-width: 1024px) {
-    width: 100px;
-  }
-
-  @media (max-width: 878px) {
-    width: 90px;
-  }
-}
-
-.navbar.scrolled .logoImage {
-  width: 200px;
-
-  @media (max-width: 1024px) {
-    width: 180px;
-  }
-
-  @media (max-width: 878px) {
-    width: 160px;
+  @media (max-width: 768px) {
+    width: 140px;
   }
 }
 
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
 
-  @media (max-width: 1024px) {
-    gap: 32px;
+  @media (max-width: 1280px) {
+    gap: 24px;
   }
 
-  @media (max-width: 878px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
 
 .navLink {
-  color: rgb(255, 255, 255)  ;
-  font-size: 16px;
+  color: rgb(255, 255, 255);
+  font-size: 14.5px;
   line-height: 24px;
   font-weight: 400;
   text-decoration: none;
@@ -134,13 +123,13 @@
   gap: 16px;
   flex-shrink: 0;
 
-  @media (max-width: 878px) {
+  @media (max-width: 1024px) {
     gap: 12px;
   }
 }
 
 .desktopButton {
-  @media (max-width: 878px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
@@ -153,7 +142,7 @@
   padding: 8px;
   z-index: 101;
 
-  @media (max-width: 878px) {
+  @media (max-width: 1024px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -211,7 +200,7 @@
   backdrop-filter: blur(2px);
   z-index: 9998;
 
-  @media (min-width: 879px) {
+  @media (min-width: 1025px) {
     display: none;
   }
 }
@@ -228,7 +217,7 @@
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
   overflow-y: auto;
 
-  @media (min-width: 879px) {
+  @media (min-width: 1025px) {
     display: none;
   }
 }
@@ -243,7 +232,7 @@
 
 .mobileMenuHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding-bottom: 16px;
   border-bottom: 1px solid #f3f4f6;
@@ -282,7 +271,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding-top: 16px;
+  padding-top: 4px;
 }
 
 .mobileNavLink {

@@ -15,3 +15,8 @@ export * from "./manifesto/manifesto";
 export * from "./process-timeline/process-timeline";
 export * from "./faq/faq";
 export * from "./founder/founder";
+export * from "./header-about/header-about";
+export * from "./mission-values/mission-values";
+export * from "./dual-cta/dual-cta";
+export * from "./scroll-reveal-text/scroll-reveal-text";
+export * from "./services-grid/services-grid";
