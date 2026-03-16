@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { X, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { useForm, type Resolver } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import emailjs from "@emailjs/browser";
@@ -83,7 +83,7 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
     reset,
     setValue,
   } = useForm<FormData>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(validationSchema) as Resolver<FormData>,
     mode: "onBlur",
   });
 
