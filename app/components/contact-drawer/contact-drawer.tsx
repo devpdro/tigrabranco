@@ -56,7 +56,14 @@ const validationSchema = yup.object({
   volume: yup.string().required("Selecione o volume aproximado"),
 });
 
-type FormData = yup.InferType<typeof validationSchema>;
+interface FormData {
+  interest: string;
+  profile: string;
+  name: string;
+  phone: string;
+  company?: string;
+  volume: string;
+}
 
 interface ContactDrawerProps {
   isOpen: boolean;
