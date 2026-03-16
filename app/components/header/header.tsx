@@ -64,7 +64,7 @@ export function Header({}: HeaderProps) {
           </motion.h1>
 
           <motion.p className={styles.heroDescription} variants={itemVariants}>
-          A Tigre Branco Pay conecta correspondentes bancários, securitizadoras
+            A Tigre Branco Pay conecta correspondentes bancários, securitizadoras
             e investidores numa única plataforma. Tecnologia para organizar,
             profissionalizar e escalar o mercado de crédito.
           </motion.p>
