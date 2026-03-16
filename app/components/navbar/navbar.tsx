@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/app/components/form";
 import { IMAGES } from "@/app/assets/images";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,6 +18,8 @@ interface NavbarProps {
 export function Navbar({ onOpenContact }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isScrolled = true;
+  const pathname = usePathname();
+  const router = useRouter();
 
   const whatsappLink =
     "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
@@ -28,17 +31,25 @@ export function Navbar({ onOpenContact }: NavbarProps) {
     }
   };
 
-  const handleSimulateClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleSectionNav = (sectionId: string) => {
     setIsMobileMenuOpen(false);
-    if (onOpenContact) {
-      onOpenContact();
+    if (pathname === "/") {
+      handleSmoothScroll(sectionId);
+    } else {
+      router.push(`/#${sectionId}`);
     }
   };
 
-  const handleNavClick = (sectionId: string) => {
+  const handleSimulateClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     setIsMobileMenuOpen(false);
-    handleSmoothScroll(sectionId);
+    if (pathname !== "/") {
+      router.push("/");
+      return;
+    }
+    if (onOpenContact) {
+      onOpenContact();
+    }
   };
 
   return (
@@ -61,17 +72,17 @@ export function Navbar({ onOpenContact }: NavbarProps) {
           <div className={styles.navLinks}>
             <span
               className={styles.navLink}
-              onClick={() => handleSmoothScroll("solucoes")}
+              onClick={() => handleSectionNav("solucoes")}
             >
               Plataforma
             </span>
             <span
               className={styles.navLink}
-              onClick={() => handleSmoothScroll("workflow")}
+              onClick={() => handleSectionNav("workflow")}
             >
               Como funciona
             </span>
-            <Link href="/about" className={styles.navLink}>
+            <Link href="/sobre-nos" className={styles.navLink}>
               A empresa
             </Link>
           </div>
@@ -144,18 +155,18 @@ export function Navbar({ onOpenContact }: NavbarProps) {
                 <div className={styles.mobileNavLinks}>
                   <span
                     className={styles.mobileNavLink}
-                    onClick={() => handleNavClick("solucoes")}
+                    onClick={() => handleSectionNav("solucoes")}
                   >
                     Plataforma
                   </span>
                   <span
                     className={styles.mobileNavLink}
-                    onClick={() => handleNavClick("workflow")}
+                    onClick={() => handleSectionNav("workflow")}
                   >
                     Como funciona
                   </span>
                   <Link
-                    href="/about"
+                    href="/sobre-nos"
                     className={styles.mobileNavLink}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

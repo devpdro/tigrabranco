@@ -13,54 +13,47 @@ const EMAILJS_SERVICE_ID = "service_7lr3xzs";
 const EMAILJS_TEMPLATE_ID = "template_it8ycs4";
 const EMAILJS_PUBLIC_KEY = "L1YskZ0ctigZ8BuJI";
 
-const financingTypeMap: Record<string, string> = {
-  'receivables': 'Antecipação de Recebíveis',
-  'contracts': 'Antecipação de Contratos',
-  'capital-giro': 'Capital de Giro',
-  'abertura-conta': 'Abertura de Conta',
-  'conta-escrow': 'Conta Escrow',
-  'custom': 'Estruturação Customizada'
+const interestMap: Record<string, string> = {
+  platform: "Plataforma Tigre Branco Pay",
+  mentoring: "Mentoria Tigre Branco",
+  secaas: "SECaaS – Securitizadora as a Service",
+  partnership: "Parceria Comercial",
+  other: "Outro",
 };
 
-const monthlyRevenueMap: Record<string, string> = {
-  'up-to-100k': 'Até R$ 100K',
-  '100k-500k': 'R$ 100K - R$ 500K',
-  '500k-2m': 'R$ 500K - R$ 2M',
-  '2m-10m': 'R$ 2M - R$ 10M',
-  'above-10m': 'Acima de R$ 10M'
+const profileMap: Record<string, string> = {
+  correspondent: "Correspondente Bancário",
+  originator: "Originador de Crédito",
+  fintech: "Fintech / Factoring",
+  securitizer: "Securitizadora",
+  investor: "Investidor",
+  entrepreneur: "Empresário / Empreendedor",
+  other: "Outro",
 };
 
-// Schema de validação
+const volumeMap: Record<string, string> = {
+  none: "Ainda não opero",
+  "up-to-100k": "Até R$ 100K/mês",
+  "100k-500k": "R$ 100K a R$ 500K/mês",
+  "500k-2m": "R$ 500K a R$ 2M/mês",
+  "above-2m": "Acima de R$ 2M/mês",
+};
+
 const validationSchema = yup.object({
-  financingType: yup.string().required('Selecione o tipo de securitização'),
-  amount: yup
+  interest: yup.string().required("Selecione o seu interesse"),
+  profile: yup.string().required("Selecione o seu perfil"),
+  name: yup
     .string()
-    .required('Informe o valor solicitado')
-    .test('is-valid-amount', 'Valor inválido', (value) => {
-      if (!value) return false;
-      const numbers = value.replace(/\D/g, '');
-      return numbers.length > 0 && parseFloat(numbers) >= 100; // Mínimo R$ 1,00
-    }),
-  companyName: yup
-    .string()
-    .required('Informe o nome da empresa')
-    .min(5, 'Nome da empresa deve ter no mínimo 5 caracteres')
-    .max(100, 'Nome da empresa deve ter no máximo 100 caracteres'),
-  cnpj: yup
-    .string()
-    .required('Informe o CNPJ')
-    .matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/, 'CNPJ inválido'),
-  responsibleName: yup
-    .string()
-    .required('Informe o nome do responsável')
-    .min(3, 'Nome deve ter no mínimo 3 caracteres')
-    .max(50, 'Nome deve ter no máximo 50 caracteres')
-    .matches(/^[a-zA-ZÀ-ÿ\s]+$/, 'Nome deve conter apenas letras e espaços'),
+    .required("Informe o seu nome")
+    .min(3, "Nome deve ter no mínimo 3 caracteres")
+    .max(80, "Nome deve ter no máximo 80 caracteres")
+    .matches(/^[a-zA-ZÀ-ÿ\s]+$/, "Nome deve conter apenas letras e espaços"),
   phone: yup
     .string()
-    .required('Informe o telefone')
-    .matches(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, 'Telefone inválido'),
-  monthlyRevenue: yup.string().required('Selecione o faturamento mensal'),
+    .required("Informe o seu WhatsApp")
+    .matches(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, "Número inválido"),
+  company: yup.string().max(100, "Máximo de 100 caracteres"),
+  volume: yup.string().required("Selecione o volume aproximado"),
 });
 
 type FormData = yup.InferType<typeof validationSchema>;
@@ -84,7 +77,7 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
     setValue,
   } = useForm<FormData>({
     resolver: yupResolver(validationSchema),
-    mode: 'onBlur',
+    mode: "onBlur",
   });
 
   useEffect(() => {
@@ -97,112 +90,56 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
     } else {
       document.body.style.overflow = "unset";
     }
-
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
   useEffect(() => {
-    if (!isOpen) {
-      reset();
-    }
+    if (!isOpen) reset();
   }, [isOpen, reset]);
 
-  // Máscara para CNPJ
-  const formatCNPJ = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
-    if (numbers.length <= 14) {
-      return numbers
-        .replace(/^(\d{2})(\d)/, '$1.$2')
-        .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
-        .replace(/\.(\d{3})(\d)/, '.$1/$2')
-        .replace(/(\d{4})(\d)/, '$1-$2');
-    }
-    return value;
-  };
-
-  // Máscara para telefone (XX) XXXXX-XXXX
   const formatPhone = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
+    const numbers = value.replace(/\D/g, "");
     if (numbers.length <= 11) {
       if (numbers.length <= 10) {
-        // Telefone fixo: (XX) XXXX-XXXX
         return numbers
-          .replace(/^(\d{2})(\d)/, '($1) $2')
-          .replace(/(\d{4})(\d)/, '$1-$2');
+          .replace(/^(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{4})(\d)/, "$1-$2");
       } else {
-        // Celular: (XX) XXXXX-XXXX
         return numbers
-          .replace(/^(\d{2})(\d)/, '($1) $2')
-          .replace(/(\d{5})(\d)/, '$1-$2');
+          .replace(/^(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{5})(\d)/, "$1-$2");
       }
     }
     return value;
   };
 
-  // Máscara para valor monetário (formato simples: números apenas)
-  const formatCurrency = (value: string) => {
-    const numbers = value.replace(/\D/g, '');
-    return numbers;
-  };
-
-  const handleCNPJChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatted = formatCNPJ(e.target.value);
-    setValue('cnpj', formatted, { shouldValidate: true });
-  };
-
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formatted = formatPhone(e.target.value);
-    setValue('phone', formatted, { shouldValidate: true });
-  };
-
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const numbers = formatCurrency(e.target.value);
-    // Formatar como R$ X.XXX,XX
-    if (numbers.length > 0) {
-      const number = parseFloat(numbers) / 100;
-      const formatted = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }).format(number);
-      setValue('amount', formatted, { shouldValidate: true });
-    } else {
-      setValue('amount', '', { shouldValidate: true });
-    }
+    setValue("phone", formatted, { shouldValidate: true });
   };
 
   const onSubmit = async (data: FormData) => {
     try {
-      const financingTypeLabel =
-        financingTypeMap[data.financingType] ?? data.financingType;
-      const monthlyRevenueLabel =
-        monthlyRevenueMap[data.monthlyRevenue] ?? data.monthlyRevenue;
-
       const templateParams = {
-        responsible_name: data.responsibleName,
-        company_name: data.companyName,
-        cnpj: data.cnpj,
+        interest: interestMap[data.interest] ?? data.interest,
+        profile: profileMap[data.profile] ?? data.profile,
+        responsible_name: data.name,
         phone: data.phone,
-        financing_type: financingTypeLabel,
-        amount: data.amount,
-        monthly_revenue: monthlyRevenueLabel,
+        company_name: data.company || "Não informado",
+        volume: volumeMap[data.volume] ?? data.volume,
         to_email: "antoniotigrebranco@gmail.com",
         email: "antoniotigrebranco@gmail.com",
         reply_to: "antoniotigrebranco@gmail.com",
       };
-
-      console.log("Form data:", data);
-      console.log("EmailJS template params:", templateParams);
 
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
 
       setFeedback({
         type: "success",
         message:
-          "Sua solicitação foi enviada e já está com nosso time. Em até 3 dias úteis analisaremos as informações e entraremos em contato pelo telefone informado para seguir com os próximos passos.",
+          "Recebemos seu contato. Nosso time vai analisar o seu perfil e entrar em contato pelo WhatsApp em até 1 dia útil.",
       });
       reset();
       onClose();
@@ -211,7 +148,7 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
       setFeedback({
         type: "error",
         message:
-          "Não foi possível enviar sua solicitação agora. Tente novamente em alguns minutos.",
+          "Não foi possível enviar agora. Tente novamente ou fale diretamente pelo WhatsApp.",
       });
     }
   };
@@ -245,7 +182,12 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
             >
               <div className={styles.content}>
                 <header className={styles.header}>
-                  <h2 className={styles.title}>Solicitar Proposta</h2>
+                  <div>
+                    <h2 className={styles.title}>Falar com especialista</h2>
+                    <p className={styles.subtitle}>
+                      Preencha abaixo e retornamos em até 1 dia útil.
+                    </p>
+                  </div>
                   <button
                     className={styles["close-button"]}
                     onClick={onClose}
@@ -256,107 +198,81 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                 </header>
 
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                  {/* Interesse */}
                   <div className={styles["input-wrapper"]}>
+                    <label className={styles.label}>Qual é o seu interesse?</label>
                     <div className={styles["select-wrapper"]}>
                       <select
-                        {...register("financingType")}
+                        {...register("interest")}
                         className={`${styles["form-control"]} ${styles.select} ${
-                          errors.financingType ? styles.error : ""
+                          errors.interest ? styles.error : ""
                         }`}
                       >
-                        <option value="">Tipo de Securitização</option>
-                        {Object.entries(financingTypeMap).map(
-                          ([value, label]) => (
-                            <option key={value} value={value}>
-                              {label}
-                            </option>
-                          ),
-                        )}
+                        <option value="">Selecione uma opção</option>
+                        {Object.entries(interestMap).map(([value, label]) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
                       </select>
                     </div>
-                    {errors.financingType && (
+                    {errors.interest && (
                       <span className={styles["error-message"]}>
                         <AlertCircle size={16} />
-                        {errors.financingType.message}
+                        {errors.interest.message}
                       </span>
                     )}
                   </div>
 
+                  {/* Perfil */}
                   <div className={styles["input-wrapper"]}>
-                    <input
-                      type="tel"
-                      inputMode="numeric"
-                      {...register("amount")}
-                      className={`${styles["form-control"]} ${
-                        errors.amount ? styles.error : ""
-                      }`}
-                      placeholder="Valor Solicitado (R$)"
-                      onChange={handleAmountChange}
-                    />
-                    {errors.amount && (
+                    <label className={styles.label}>Qual é o seu perfil?</label>
+                    <div className={styles["select-wrapper"]}>
+                      <select
+                        {...register("profile")}
+                        className={`${styles["form-control"]} ${styles.select} ${
+                          errors.profile ? styles.error : ""
+                        }`}
+                      >
+                        <option value="">Selecione uma opção</option>
+                        {Object.entries(profileMap).map(([value, label]) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    {errors.profile && (
                       <span className={styles["error-message"]}>
                         <AlertCircle size={16} />
-                        {errors.amount.message}
+                        {errors.profile.message}
                       </span>
                     )}
                   </div>
 
+                  {/* Nome */}
                   <div className={styles["input-wrapper"]}>
-                    <input
-                      type="text"
-                      {...register("companyName")}
-                      className={`${styles["form-control"]} ${
-                        errors.companyName ? styles.error : ""
-                      }`}
-                      placeholder="Nome da Empresa"
-                      maxLength={100}
-                    />
-                    {errors.companyName && (
-                      <span className={styles["error-message"]}>
-                        <AlertCircle size={16} />
-                        {errors.companyName.message}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className={styles["input-wrapper"]}>
+                    <label className={styles.label}>Nome completo</label>
                     <input
                       type="text"
-                      {...register("cnpj")}
+                      {...register("name")}
                       className={`${styles["form-control"]} ${
-                        errors.cnpj ? styles.error : ""
+                        errors.name ? styles.error : ""
                       }`}
-                      placeholder="CNPJ"
-                      maxLength={18}
-                      onChange={handleCNPJChange}
+                      placeholder="Seu nome"
+                      maxLength={80}
                     />
-                    {errors.cnpj && (
+                    {errors.name && (
                       <span className={styles["error-message"]}>
                         <AlertCircle size={16} />
-                        {errors.cnpj.message}
+                        {errors.name.message}
                       </span>
                     )}
                   </div>
 
+                  {/* WhatsApp */}
                   <div className={styles["input-wrapper"]}>
-                    <input
-                      type="text"
-                      {...register("responsibleName")}
-                      className={`${styles["form-control"]} ${
-                        errors.responsibleName ? styles.error : ""
-                      }`}
-                      placeholder="Nome do Responsável"
-                      maxLength={50}
-                    />
-                    {errors.responsibleName && (
-                      <span className={styles["error-message"]}>
-                        <AlertCircle size={16} />
-                        {errors.responsibleName.message}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className={styles["input-wrapper"]}>
+                    <label className={styles.label}>WhatsApp</label>
                     <input
                       type="tel"
                       inputMode="tel"
@@ -364,7 +280,7 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                       className={`${styles["form-control"]} ${
                         errors.phone ? styles.error : ""
                       }`}
-                      placeholder="Telefone (XX) XXXXX-XXXX"
+                      placeholder="(11) 99999-9999"
                       maxLength={15}
                       onChange={handlePhoneChange}
                     />
@@ -376,28 +292,53 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                     )}
                   </div>
 
+                  {/* Empresa (opcional) */}
                   <div className={styles["input-wrapper"]}>
-                    <div className={styles["select-wrapper"]}>
-                      <select
-                        {...register("monthlyRevenue")}
-                        className={`${styles["form-control"]} ${styles.select} ${
-                          errors.monthlyRevenue ? styles.error : ""
-                        }`}
-                      >
-                        <option value="">Faturamento Mensal</option>
-                        {Object.entries(monthlyRevenueMap).map(
-                          ([value, label]) => (
-                            <option key={value} value={value}>
-                              {label}
-                            </option>
-                          ),
-                        )}
-                      </select>
-                    </div>
-                    {errors.monthlyRevenue && (
+                    <label className={styles.label}>
+                      Empresa{" "}
+                      <span className={styles.optional}>(opcional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      {...register("company")}
+                      className={`${styles["form-control"]} ${
+                        errors.company ? styles.error : ""
+                      }`}
+                      placeholder="Nome da empresa"
+                      maxLength={100}
+                    />
+                    {errors.company && (
                       <span className={styles["error-message"]}>
                         <AlertCircle size={16} />
-                        {errors.monthlyRevenue.message}
+                        {errors.company.message}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Volume */}
+                  <div className={styles["input-wrapper"]}>
+                    <label className={styles.label}>
+                      Volume aproximado de crédito por mês
+                    </label>
+                    <div className={styles["select-wrapper"]}>
+                      <select
+                        {...register("volume")}
+                        className={`${styles["form-control"]} ${styles.select} ${
+                          errors.volume ? styles.error : ""
+                        }`}
+                      >
+                        <option value="">Selecione uma faixa</option>
+                        {Object.entries(volumeMap).map(([value, label]) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    {errors.volume && (
+                      <span className={styles["error-message"]}>
+                        <AlertCircle size={16} />
+                        {errors.volume.message}
                       </span>
                     )}
                   </div>
@@ -407,16 +348,15 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                     className={styles["submit-button"]}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Enviando..." : "Enviar"}
+                    {isSubmitting ? "Enviando..." : "Quero falar com especialista"}
                   </button>
                 </form>
 
                 <footer className={styles.footer}>
                   <p>
-                    Declaro que conheço a{" "}
-                    <a href="/politica-privacidade">Política de Privacidade</a> e
-                    autorizo a utilização das minhas informações pelo Tigre
-                    Branco.
+                    Ao enviar, você concorda com nossa{" "}
+                    <a href="/politica-privacidade">Política de Privacidade</a>.
+                    Seus dados não serão compartilhados com terceiros.
                   </p>
                 </footer>
               </div>
@@ -447,8 +387,8 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
               <div className={styles.feedbackCard}>
                 <h3 className={styles.feedbackTitle}>
                   {feedback.type === "success"
-                    ? "Solicitação enviada com sucesso"
-                    : "Não foi possível enviar sua solicitação"}
+                    ? "Mensagem enviada com sucesso"
+                    : "Algo deu errado"}
                 </h3>
                 <p className={styles.feedbackMessage}>{feedback.message}</p>
                 <button

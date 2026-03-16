@@ -17,6 +17,8 @@ import {
   ProcessTimeline,
   FAQ,
   Founder,
+  Secaas,
+  Mentoring,
 } from "@/app/components";
 
 export default function Home() {
@@ -37,9 +39,12 @@ export default function Home() {
 
       {/* 6. CALCULADORA/BENEFÍCIO - Mostre o valor tangível */}
       <Business />
-        
+
       {/* 5. DUPLO CTA - Dois caminhos de conversão */}
-      <DualCta onOpenContact={() => setIsDrawerOpen(true)} />
+      <DualCta />
+
+      {/* 6b. PRODUTO - SECaaS */}
+      <Secaas />
 
       {/* 5. COMO FUNCIONA - Processo simplificado */}
       <Workflow />
@@ -47,10 +52,13 @@ export default function Home() {
       {/* 6. DETALHAMENTO - Timeline do processo */}
       <ProcessTimeline onContactClick={() => setIsDrawerOpen(true)} />
       
-      {/* 7. PROVA SOCIAL - Depoimentos de clientes */}
+      {/* 7. MENTORIA - Apresentação do produto */}
+      <Mentoring />
+
+      {/* 8. METODOLOGIA - 4 etapas da mentoria */}
       <FeedbackLoop />
       
-      {/* 8. DIFERENCIAL - Suporte 24/7 */}
+      {/* 9. DIFERENCIAL - Suporte 24/7 */}
       <Support />
       
       {/* 9. OBJEÇÕES - Tire dúvidas comuns */}

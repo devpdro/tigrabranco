@@ -6,16 +6,15 @@ import { useRef } from "react";
 import { Button } from "@/app/components/form";
 import S from "./dual-cta.module.scss";
 
-interface DualCtaProps {
-  onOpenContact?: () => void;
-}
-
-export function DualCta({ onOpenContact }: DualCtaProps) {
+export function DualCta() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   const whatsappLink =
     "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
+
+  const whatsappMentoriaLink =
+    "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20tenho%20interesse%20na%20Mentoria%20Tigre%20Branco.%20Gostaria%20de%20saber%20mais%20sobre%20como%20funciona.";
 
   return (
     <section ref={ref} className={S.section}>
@@ -30,14 +29,16 @@ export function DualCta({ onOpenContact }: DualCtaProps) {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className={S.cardTitle}>
-              Pronto para estruturar sua operação de crédito com tecnologia, capital e escala real?
+              Pronto para estruturar sua operação de crédito com tecnologia e capital?
             </h2>
             <div>
               <Button
                 variant="primary"
                 label="Falar com especialista"
                 size="md"
-                onClick={onOpenContact}
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
               />
             </div>
           </motion.div>
@@ -61,7 +62,7 @@ export function DualCta({ onOpenContact }: DualCtaProps) {
                 variant="secondary"
                 label="Quero a mentoria"
                 size="md"
-                href={whatsappLink}
+                href={whatsappMentoriaLink}
                 target="_blank"
                 rel="noopener noreferrer"
               />

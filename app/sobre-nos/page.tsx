@@ -1,5 +1,6 @@
 import { About } from "@/app/pages";
 
-export default function AboutPage() {
+export default function SobreNosPage() {
   return <About />;
 }
+

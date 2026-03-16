@@ -4,6 +4,7 @@ import { Factory, Store, Briefcase, Sprout } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+import { Button } from "@/app/components/form";
 import S from "./feedback-loop.module.scss";
 
 export function FeedbackLoop() {
@@ -13,30 +14,30 @@ export function FeedbackLoop() {
   const features = [
     {
       icon: Factory,
-      title: "Diagnóstico profundo da operação",
+      title: "Diagnóstico da sua operação de crédito",
       description:
-        "Mapeamos sua estrutura atual de crédito, recebíveis, riscos e governança para identificar gargalos, oportunidades de melhoria e caminhos de crescimento sustentável.",
+        "Avaliamos sua estrutura atual — produtos, fluxos, governança e riscos — para identificar o que impede sua operação de crescer e traçar um caminho claro até a escala.",
       progress: "85%",
     },
     {
       icon: Store,
-      title: "Desenho da arquitetura financeira",
+      title: "Estruturação financeira e jurídica",
       description:
-        "Ajudamos você a organizar a arquitetura do negócio financeiro, conectando produtos, fluxos, APIs, parceiros e esteiras de decisão em um modelo coerente e escalável.",
+        "Orientamos a montagem da arquitetura correta: securitizadora, FIDC, SCD ou correspondente bancário. Cada estrutura no lugar certo, dentro da legalidade e pronta para operar.",
       progress: "90%",
     },
     {
       icon: Briefcase,
-      title: "Aplicação prática da infraestrutura FaaS",
+      title: "Integração com a plataforma Tigre Branco Pay",
       description:
-        "Trazemos referências e boas práticas para que sua equipe desenhe políticas, fluxos operacionais e rotinas de controle usando a infraestrutura já disponível, sem complexidade desnecessária.",
+        "Conectamos sua operação à infraestrutura tecnológica da plataforma — APIs, esteiras de crédito, gestão de carteira e compliance — para que você opere com agilidade e controle real.",
       progress: "75%",
     },
     {
       icon: Sprout,
-      title: "Otimização contínua e expansão",
+      title: "Crescimento com acompanhamento estratégico",
       description:
-        "Acompanhamos indicadores, comportamento da carteira e performance das estruturas para ajustar modelos, reduzir riscos e abrir espaço para novas teses e produtos financeiros.",
+        "Monitoramos indicadores, comportamento de carteira e performance das estruturas para ajustar modelos, abrir novas teses de crédito e garantir crescimento sustentável a longo prazo.",
       progress: "95%",
     },
   ];
@@ -50,11 +51,11 @@ export function FeedbackLoop() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2>Acompanhamento estratégico para sua operação financeira.</h2>
+          <h2>Da estrutura à escala, com quem entende o mercado de crédito.</h2>
           <p>
-            Unimos infraestrutura FaaS e suporte especializado para ajudar você
-            a estruturar, evoluir e escalar sua securitizadora ou negócio de
-            crédito com mais clareza, controle e eficiência.
+            A Mentoria Tigre Branco une infraestrutura tecnológica e visão
+            estratégica para transformar sua operação em um negócio de crédito
+            profissional, organizado e preparado para crescer.
           </p>
         </motion.div>
 
@@ -92,6 +93,22 @@ export function FeedbackLoop() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className={S.cta}
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Button
+            variant="outlineWhite"
+            label="Quero a mentoria"
+            href="https://wa.me/5511914924000?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Mentoria%20Tigre%20Branco.%20Podem%20me%20contar%20mais%20sobre%20como%20funciona%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="md"
+          />
+        </motion.div>
       </div>
     </section>
   );

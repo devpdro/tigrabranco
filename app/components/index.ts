@@ -20,3 +20,5 @@ export * from "./mission-values/mission-values";
 export * from "./dual-cta/dual-cta";
 export * from "./scroll-reveal-text/scroll-reveal-text";
 export * from "./services-grid/services-grid";
+export * from "./secaas/secaas";
+export * from "./mentoring/mentoring";

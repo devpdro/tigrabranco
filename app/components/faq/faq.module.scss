@@ -113,12 +113,15 @@
 
   &:focus {
     outline: none;
-    background-color: #f9fafb;
   }
 
   &:focus-visible {
     outline: 2px solid #02a657;
     outline-offset: -2px;
+  }
+
+  &.active {
+    background-color: #f9fafb;
   }
 
   @media (max-width: 640px) {
@@ -162,20 +165,22 @@
 }
 
 .answer {
-  padding: 0 24px 20px 24px;
+  padding: 12px 24px 20px 24px;
   font-size: 0.9375rem;
   font-weight: 400;
   color: #64748b;
-  line-height: 1.5;
+  line-height: 1.65;
+  background-color: #f9fafb;
+  border-top: 1px solid #f1f5f9;
 
   @media (max-width: 768px) {
     font-size: 0.875rem;
-    padding: 0 20px 16px 20px;
+    padding: 12px 20px 16px 20px;
   }
 
   @media (max-width: 640px) {
     font-size: 0.8125rem;
-    padding: 0 20px 16px 20px;
+    padding: 10px 20px 16px 20px;
   }
 }
 

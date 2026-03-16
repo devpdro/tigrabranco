@@ -9,36 +9,34 @@ import styles from "./faq.module.scss";
 
 const faqItems = [
   {
-    id: 2,
-    question: "Como estruturar melhor sua securitizadora ou operação de crédito?",
+    id: 1,
+    question: "O que é a Tigre Branco Pay e como ela funciona?",
     answer:
-      "O ponto de partida é ter clareza sobre qual tipo de crédito ou recebível você quer trabalhar, definir bem o perfil de cliente, estabelecer políticas de crédito objetivas e criar fluxos padronizados de análise, formalização e cobrança. A partir daí, ajudamos você a traduzir essa visão em processos, integrações e controles dentro da nossa infraestrutura, para que a operação seja organizada desde o início.",
+      "A Tigre Branco Pay é uma plataforma de infraestrutura tecnológica financeira que conecta correspondentes bancários, securitizadoras e investidores em um único ecossistema. Disponibilizamos, via API e ambiente web, tudo que é necessário para estruturar e escalar operações de crédito: securitização de recebíveis, gestão de pagamentos, análise de risco e conformidade regulatória. Você traz a operação, nós entregamos a infraestrutura para operar com profissionalismo e escala.",
+  },
+  {
+    id: 2,
+    question: "Preciso já ter uma securitizadora ou FIDC para usar a plataforma?",
+    answer:
+      "Não. A Tigre Branco Pay foi criada justamente para operadores de crédito que ainda estão estruturando seu negócio. Se você é um correspondente bancário, empresário ou gestor de crédito que quer profissionalizar sua operação, podemos ajudá-lo desde o início, conectando você às estruturas de capital e securitização adequadas ao seu modelo de negócio.",
   },
   {
     id: 3,
-    question: "Quais passos para otimizar operações financeiras que já estão rodando?",
+    question: "Como a plataforma conecta correspondentes bancários e securitizadoras?",
     answer:
-      "Começamos revisando seus indicadores-chave, como inadimplência, prazos médios, concentração de risco e gargalos operacionais. Com base nisso, sugerimos ajustes em políticas de crédito, automações de aprovação, fluxos de pagamentos, conciliação e rotinas de acompanhamento da carteira, usando nossa infraestrutura para reduzir retrabalho e dar mais previsibilidade ao resultado.",
+      "Nossa plataforma atua como o elo tecnológico entre esses dois mundos. Os correspondentes bancários e operadores de crédito têm acesso a ferramentas para originar, analisar e formalizar operações. As securitizadoras encontram uma estrutura organizada para transformar essas operações em ativos estruturados. A tecnologia garante que esse fluxo aconteça de forma padronizada, rastreável e escalável.",
+  },
+  {
+    id: 4,
+    question: "A Tigre Branco Pay é uma instituição financeira?",
+    answer:
+      "Não. Somos uma plataforma de infraestrutura tecnológica financeira, o que chamamos de Finance as a Service. Não concedemos crédito diretamente ao consumidor final. Atuamos como elo tecnológico e operacional entre originadores de crédito, estruturas de securitização e fontes de capital. As operações financeiras são estruturadas e liquidadas por instituições parceiras devidamente autorizadas pelo Banco Central e pela CVM.",
   },
   {
     id: 5,
-    question:
-      "Não tenho tudo pronto ainda. Em que momento faz sentido começar a usar a plataforma?",
+    question: "Quanto tempo leva para começar a operar com a plataforma?",
     answer:
-      "Você não precisa chegar com a operação totalmente desenhada. É suficiente ter clareza sobre o público que quer atender e o tipo de produto financeiro que deseja oferecer. A partir disso, ajudamos a organizar etapas, priorizar entregas, definir fluxos mínimos para começar e construir, passo a passo, uma operação sólida de crédito ou securitização, evitando decisões que possam travar o crescimento no futuro.",
-  },
-  {
-    id: 6,
-    question: "Como a Tigre Branco ajuda a reduzir riscos e erros operacionais?",
-    answer:
-      "Nossa infraestrutura já incorpora boas práticas de mercado em cadastro, análise de crédito, monitoramento de carteira, pagamentos e compliance, reduzindo a dependência de controles manuais dispersos. Além disso, apoiamos seus times na definição de rotinas, responsabilidades e alertas, o que diminui falhas operacionais, aumenta a rastreabilidade das decisões e fortalece a governança do negócio financeiro.",
-  },
-  {
-    id: 7,
-    question:
-      "Que resultados posso esperar ao estruturar minha operação com a Tigre Branco?",
-    answer:
-      "Os principais ganhos costumam aparecer em três frentes: mais velocidade para lançar ou ajustar produtos financeiros, mais controle sobre riscos e indicadores da carteira e mais eficiência operacional, com menos retrabalho e maior automação. Ao longo do tempo, isso se traduz em uma operação de crédito ou securitização mais previsível, escalável e preparada para aproveitar novas oportunidades de mercado.",
+      "O tempo de onboarding varia conforme a complexidade da sua operação. Para operações mais simples, é possível começar em poucas semanas. Após uma conversa inicial para entender seu modelo de negócio, nossa equipe apresenta um plano de implementação com etapas claras, prioridades definidas e suporte técnico durante todo o processo.",
   },
 ];
 
@@ -80,7 +78,7 @@ export function FAQ() {
               }}
             >
               <button
-                className={styles.questionButton}
+                className={`${styles.questionButton} ${openItems.includes(item.id) ? styles.active : ""}`}
                 onClick={() => toggleItem(item.id)}
                 aria-expanded={openItems.includes(item.id)}
                 aria-controls={`answer-${item.id}`}

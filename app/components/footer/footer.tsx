@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import Logo from "@/app/assets/images/LOGO_PRETO.png";
 import Anbima from "@/app/assets/images/ANBIMA_SECURITIZADORA.svg";
 
@@ -14,13 +15,18 @@ interface FooterProps {
 }
 
 export function Footer({ openContact }: FooterProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const whatsappLink =
     "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
 
-  const handleSmoothScroll = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+  const handleSectionNav = (sectionId: string) => {
+    if (pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      router.push(`/#${sectionId}`);
     }
   };
 
@@ -100,7 +106,7 @@ export function Footer({ openContact }: FooterProps) {
                 </a>
               </li>
               <li>
-                <Link href="/about" className={S.link}>
+                <Link href="/sobre-nos" className={S.link}>
                   Quem somos
                 </Link>
               </li>
@@ -121,16 +127,13 @@ export function Footer({ openContact }: FooterProps) {
             <h4 className={S.heading}>Obtenha ajuda</h4>
             <ul className={S.list}>
               <li>
-                <Link 
-                  href="#" 
+                <span
                   className={S.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSmoothScroll("faq");
-                  }}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleSectionNav("faq")}
                 >
                   Perguntas frequentes
-                </Link>
+                </span>
               </li>
             </ul>
           </div>

@@ -75,15 +75,15 @@ export function Workflow() {
             SISTEMA PRÓPRIO DE WORKFLOW
           </motion.span>
           <h2>
-            Domine cada etapa da sua operação financeira com nosso{" "}
+            Domine cada{" "}
             <HandWrittenTextInline
-              text="sistema próprio"
+              text="etapa"
               className={S.handWritten}
               strokeColor="#02a657"
               strokeWidth={4}
               duration={2}
-            />
-            .
+            />{" "}
+            da sua operação financeira com nosso sistema próprio.
           </h2>
         </motion.div>
 
