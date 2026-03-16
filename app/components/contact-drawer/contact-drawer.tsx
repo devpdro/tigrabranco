@@ -52,7 +52,7 @@ const validationSchema = yup.object({
     .string()
     .required("Informe o seu WhatsApp")
     .matches(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, "Número inválido"),
-  company: yup.string().max(100, "Máximo de 100 caracteres"),
+  company: yup.string().optional().max(100, "Máximo de 100 caracteres"),
   volume: yup.string().required("Selecione o volume aproximado"),
 });
 
@@ -139,7 +139,7 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
       setFeedback({
         type: "success",
         message:
-          "Recebemos seu contato. Nosso time vai analisar o seu perfil e entrar em contato pelo WhatsApp em até 1 dia útil.",
+          "Recebemos seu contato. Nosso time vai analisar o seu perfil e entrar em contato pelo WhatsApp em até 3 dias úteis.",
       });
       reset();
       onClose();
@@ -184,9 +184,9 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                 <header className={styles.header}>
                   <div>
                     <h2 className={styles.title}>Falar com especialista</h2>
-                    <p className={styles.subtitle}>
-                      Preencha abaixo e retornamos em até 1 dia útil.
-                    </p>
+                  <p className={styles.subtitle}>
+                    Preencha abaixo e retornamos em até 3 dias úteis.
+                  </p>
                   </div>
                   <button
                     className={styles["close-button"]}
