@@ -35,6 +35,17 @@ const solutionMap: Record<string, string> = {
   system_only: "Somente o sistema",
 };
 
+const solutionDisplayMap: Record<string, string> = {
+  complete_package:
+    "Pacote completo (Mentoria prática + sistema + abertura da Factoring/Securitizadora)",
+  system_only: "Somente o sistema",
+};
+
+const solutionHelperMap: Record<string, string> = {
+  complete_package:
+    "Inclui: mentoria prática + sistema + abertura da Factoring/Securitizadora.",
+};
+
 const primaryGoalMap: Record<string, string> = {
   build_operation: "Estruturar minha operação",
   scale_operation: "Escalar uma operação existente",
@@ -103,7 +114,11 @@ Empresa/operação: ${data.company || "Não informado"}
 Atua no mercado: ${marketExperienceMap[data.marketExperience] ?? data.marketExperience}
 Estágio atual: ${operationStageMap[data.operationStage] ?? data.operationStage}
 Investimento: ${investmentRangeMap[data.investmentRange] ?? data.investmentRange}
-Busca agora: ${solutionMap[data.solution] ?? data.solution}
+Busca agora: ${
+      solutionDisplayMap[data.solution] ??
+      solutionMap[data.solution] ??
+      data.solution
+    }
 Objetivo principal: ${primaryGoalMap[data.primaryGoal] ?? data.primaryGoal}
 Capital para operar: ${capitalSourceMap[data.capitalSource] ?? data.capitalSource}
 Prazo para iniciar: ${timelineMap[data.timeline] ?? data.timeline}`,
@@ -119,10 +134,13 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
     formState: { errors, isSubmitting },
     reset,
     setValue,
+    watch,
   } = useForm<FormData>({
     resolver: yupResolver(validationSchema) as Resolver<FormData>,
     mode: "onBlur",
   });
+
+  const selectedSolution = watch("solution");
 
   useEffect(() => {
     emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -173,12 +191,17 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
       company_name: data.company || "Não informado",
       market_experience:
         marketExperienceMap[data.marketExperience] ?? data.marketExperience,
-      operation_stage: operationStageMap[data.operationStage] ?? data.operationStage,
+      operation_stage:
+        operationStageMap[data.operationStage] ?? data.operationStage,
       investment_range:
         investmentRangeMap[data.investmentRange] ?? data.investmentRange,
-      solution_interest: solutionMap[data.solution] ?? data.solution,
+      solution_interest:
+        solutionDisplayMap[data.solution] ??
+        solutionMap[data.solution] ??
+        data.solution,
       primary_goal: primaryGoalMap[data.primaryGoal] ?? data.primaryGoal,
-      capital_source: capitalSourceMap[data.capitalSource] ?? data.capitalSource,
+      capital_source:
+        capitalSourceMap[data.capitalSource] ?? data.capitalSource,
       timeline: timelineMap[data.timeline] ?? data.timeline,
       to_email: "antoniotigrebranco@gmail.com",
       email: "antoniotigrebranco@gmail.com",
@@ -239,7 +262,8 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
               <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles["input-wrapper"]}>
                   <label className={styles.label}>
-                    Você já atua no mercado factoring, securitizadora ou fomento comercial?
+                    Você já atua no mercado factoring, securitizadora ou fomento
+                    comercial?
                   </label>
                   <select
                     {...register("marketExperience")}
@@ -248,11 +272,13 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                     }`}
                   >
                     <option value="">Selecione uma opção</option>
-                    {Object.entries(marketExperienceMap).map(([value, label]) => (
-                      <option key={value} value={value}>
-                        {label}
-                      </option>
-                    ))}
+                    {Object.entries(marketExperienceMap).map(
+                      ([value, label]) => (
+                        <option key={value} value={value}>
+                          {label}
+                        </option>
+                      ),
+                    )}
                   </select>
                   {errors.marketExperience && (
                     <span className={styles["error-message"]}>
@@ -264,7 +290,8 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
 
                 <div className={styles["input-wrapper"]}>
                   <label className={styles.label}>
-                    Hoje você pretende iniciar do zero ou já possui operação em andamento?
+                    Hoje você pretende iniciar do zero ou já possui operação em
+                    andamento?
                   </label>
                   <select
                     {...register("operationStage")}
@@ -289,7 +316,8 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
 
                 <div className={styles["input-wrapper"]}>
                   <label className={styles.label}>
-                    Qual faixa de investimento você separou para estruturar sua operação?
+                    Qual faixa de investimento você separou para estruturar sua
+                    operação?
                   </label>
                   <select
                     {...register("investmentRange")}
@@ -298,11 +326,13 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                     }`}
                   >
                     <option value="">Selecione uma faixa</option>
-                    {Object.entries(investmentRangeMap).map(([value, label]) => (
-                      <option key={value} value={value}>
-                        {label}
-                      </option>
-                    ))}
+                    {Object.entries(investmentRangeMap).map(
+                      ([value, label]) => (
+                        <option key={value} value={value}>
+                          {label}
+                        </option>
+                      ),
+                    )}
                   </select>
                   {errors.investmentRange && (
                     <span className={styles["error-message"]}>
@@ -313,7 +343,9 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                 </div>
 
                 <div className={styles["input-wrapper"]}>
-                  <label className={styles.label}>O que você busca nesse momento?</label>
+                  <label className={styles.label}>
+                    O que você busca nesse momento?
+                  </label>
                   <select
                     {...register("solution")}
                     className={`${styles["form-control"]} ${styles.select} ${
@@ -327,6 +359,11 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                       </option>
                     ))}
                   </select>
+                  {selectedSolution && solutionHelperMap[selectedSolution] && (
+                    <p className={styles["helper-text"]}>
+                      {solutionHelperMap[selectedSolution]}
+                    </p>
+                  )}
                   {errors.solution && (
                     <span className={styles["error-message"]}>
                       <AlertCircle size={16} />
@@ -362,7 +399,8 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
 
                 <div className={styles["input-wrapper"]}>
                   <label className={styles.label}>
-                    Você pretende operar com capital próprio, investidores ou ambos?
+                    Você pretende operar com capital próprio, investidores ou
+                    ambos?
                   </label>
                   <select
                     {...register("capitalSource")}
@@ -386,7 +424,9 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
                 </div>
 
                 <div className={styles["input-wrapper"]}>
-                  <label className={styles.label}>Você pretende iniciar em quanto tempo?</label>
+                  <label className={styles.label}>
+                    Você pretende iniciar em quanto tempo?
+                  </label>
                   <select
                     {...register("timeline")}
                     className={`${styles["form-control"]} ${styles.select} ${
@@ -446,7 +486,8 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
 
                 <div className={styles["input-wrapper"]}>
                   <label className={styles.label}>
-                    Empresa ou operação <span className={styles.optional}>(opcional)</span>
+                    Empresa ou operação{" "}
+                    <span className={styles.optional}>(opcional)</span>
                   </label>
                   <input
                     type="text"
@@ -475,9 +516,9 @@ export function Contact({ isOpen, onClose }: ContactDrawerProps) {
               <footer className={styles.footer}>
                 <p>
                   Ao enviar, você concorda com nossa{" "}
-                  <a href="/politica-privacidade">Política de Privacidade</a>. Este
-                  diagnóstico será usado para qualificar seu perfil e direcionar o próximo
-                  contato.
+                  <a href="/politica-privacidade">Política de Privacidade</a>.
+                  Este diagnóstico será usado para qualificar seu perfil e
+                  direcionar o próximo contato.
                 </p>
               </footer>
             </div>
