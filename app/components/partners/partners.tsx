@@ -12,7 +12,6 @@ export function Partners() {
 
   const partners = [
     { name: "Celcoin", logo: IMAGES.CELCOIN },
-    { name: "Logo BMP", logo: IMAGES.LOGO_BMP },
     { name: "Serasa", logo: IMAGES.SERASA },
     { name: "Unico", logo: IMAGES.UNICO },
   ];

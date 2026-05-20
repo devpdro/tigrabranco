@@ -7,7 +7,11 @@ import { useRef } from "react";
 import { Button } from "@/app/components/form";
 import S from "./feedback-loop.module.scss";
 
-export function FeedbackLoop() {
+interface FeedbackLoopProps {
+  onOpenContact?: () => void;
+}
+
+export function FeedbackLoop({ onOpenContact }: FeedbackLoopProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -103,9 +107,7 @@ export function FeedbackLoop() {
           <Button
             variant="outlineWhite"
             label="Quero a mentoria"
-            href="https://wa.me/5511914924000?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Mentoria%20Tigre%20Branco.%20Podem%20me%20contar%20mais%20sobre%20como%20funciona%3F"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={onOpenContact}
             size="md"
           />
         </motion.div>

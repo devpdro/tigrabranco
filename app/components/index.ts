@@ -5,7 +5,6 @@ export * from "./scout-features/scout-features";
 export * from "./business-features/business-features";
 export * from "./workflow/workflow";
 export * from "./contact-drawer/contact-drawer";
-export * from "./whatsapp-button/whatsapp-button";
 export * from "./feedback-loop/feedback-loop";
 export * from "./header/header";
 export * from "./navbar/navbar";

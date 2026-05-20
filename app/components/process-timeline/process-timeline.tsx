@@ -37,8 +37,7 @@ interface ProcessTimelineProps {
   onContactClick?: () => void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function ProcessTimeline({ onContactClick: _onContactClick }: ProcessTimelineProps) {
+export function ProcessTimeline({ onContactClick }: ProcessTimelineProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -108,10 +107,8 @@ export function ProcessTimeline({ onContactClick: _onContactClick }: ProcessTime
           />
           <Button
             variant="secondary"
-            label="Falar com especialista"
-            href="https://api.whatsapp.com/send/?phone=5511914924000&text=Ol%C3%A1%21+Vim+atrav%C3%A9s+do+site+da+Tigre+Branco+e+gostaria+de+receber+assist%C3%AAncia+de+um+especialista.&type=phone_number&app_absent=0"
-            target="_blank"
-            rel="noopener noreferrer"
+            label="Simular agora"
+            onClick={onContactClick}
             size="md"
             width={{ base: "100%", sm: "auto" }}
           />
@@ -120,4 +117,3 @@ export function ProcessTimeline({ onContactClick: _onContactClick }: ProcessTime
     </section>
   );
 }
-

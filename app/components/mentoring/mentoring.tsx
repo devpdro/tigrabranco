@@ -17,7 +17,7 @@ const stats = [
     desc: "dos mentorados fecham a primeira operação estruturada em menos de 60 dias.",
   },
   {
-    value: "3x",
+    value: "5x",
     desc: "de crescimento médio de carteira nos primeiros 12 meses de operação.",
   },
   {
@@ -26,7 +26,11 @@ const stats = [
   },
 ];
 
-export function Mentoring() {
+interface MentoringProps {
+  onOpenContact?: () => void;
+}
+
+export function Mentoring({ onOpenContact }: MentoringProps) {
   return (
     <section className={S.container}>
       <div className={S.wrapper}>
@@ -53,9 +57,7 @@ export function Mentoring() {
             <Button
               variant="primary"
               label="Garantir minha vaga"
-              href="https://wa.me/5511914924000?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Mentoria%20Tigre%20Branco%20e%20quero%20garantir%20minha%20vaga.%20Podem%20me%20passar%20mais%20detalhes%3F"
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={onOpenContact}
               size="md"
             />
           </motion.div>

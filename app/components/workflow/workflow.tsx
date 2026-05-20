@@ -1,31 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { useRef, useState } from "react";
 import { FileText, Activity, Wallet, ArrowRight } from "lucide-react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { HandWrittenTextInline } from "@/app/components/ui/hand-written-text-inline";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
-import "./workflow-lightbox.css";
-import { IMAGES } from "@/app/assets/images";
 import Button from "@/app/components/form/button/button";
 
 import S from "./workflow.module.scss";
 
 export function Workflow() {
   const [activeTab, setActiveTab] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  // Helper function to get image URL from Next.js Image import
-  const getImageUrl = (image: unknown): string => {
-    if (typeof image === "string") return image;
-    const img = image as { src?: string; default?: { src?: string } };
-    return img?.src || img?.default?.src || "";
-  };
 
   const tabs = [
     {
@@ -34,8 +20,6 @@ export function Workflow() {
       title: "Gestão de cobranças na mesma visão",
       description:
         "Centralize a visão da carteira, acompanhe inadimplência e renegociações e enxergue seus recebíveis em painéis claros, pensados para operações de crédito e securitização.",
-      image: IMAGES.COBRANÇAS,
-      alt: "Painel de Gestão de Cobranças",
     },
     {
       id: "acompanhamento",
@@ -43,8 +27,6 @@ export function Workflow() {
       title: "Monitoramento em tempo real",
       description:
         "Acompanhe cada contrato, do onboarding ao pagamento final, com status atualizados em tempo real e trilha completa da esteira, dando previsibilidade para decisões do dia a dia.",
-      image: IMAGES.ACOMPANHAMENTO,
-      alt: "Dashboard de Acompanhamento de Propostas",
     },
     {
       id: "digitacao",
@@ -52,8 +34,6 @@ export function Workflow() {
       title: "Cadastro guiado e sem fricção",
       description:
         "Cadastre propostas em um fluxo guiado, com validações automáticas e campos pensados para operações financeiras, reduzindo erros e retrabalho da sua equipe.",
-      image: IMAGES.DIGITAÇÃO,
-      alt: "Interface de Digitação de Propostas",
     },
   ];
 
@@ -118,47 +98,6 @@ export function Workflow() {
         </motion.div>
 
         <motion.div
-          className={S.preview}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className={S.backgroundImage}>
-            <Image
-              src={IMAGES.BG_HEADER}
-              alt="Background"
-              fill
-              className={S.bgImage}
-              quality={100}
-              priority
-            />
-          </div>
-          <div className={S.glow} />
-          <div className={S.imageContainer}>
-            <div className={S.imageWrapper}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Image
-                    src={tabs[activeTab].image}
-                    alt={tabs[activeTab].alt}
-                    className={S.interfaceImage}
-                    quality={100}
-                    priority
-                    onClick={() => setIsLightboxOpen(true)}
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
           style={{ marginTop: "3rem", display: "flex", justifyContent: "center" }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -176,32 +115,6 @@ export function Workflow() {
           />
         </motion.div>
       </div>
-
-      <Lightbox
-        open={isLightboxOpen}
-        close={() => setIsLightboxOpen(false)}
-        slides={[
-          {
-            src: getImageUrl(tabs[activeTab].image),
-            alt: tabs[activeTab].alt,
-          },
-        ]}
-        render={{
-          buttonPrev: () => null,
-          buttonNext: () => null,
-        }}
-        styles={{
-          container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
-          slide: {
-            maxWidth: "75%",
-            maxHeight: "75vh",
-            margin: "auto",
-          },
-        }}
-        carousel={{
-          finite: true,
-        }}
-      />
     </section>
   );
 }

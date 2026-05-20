@@ -21,9 +21,6 @@ export function Navbar({ onOpenContact }: NavbarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const whatsappLink =
-    "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
-
   const handleSmoothScroll = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -43,12 +40,14 @@ export function Navbar({ onOpenContact }: NavbarProps) {
   const handleSimulateClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-    if (pathname !== "/") {
-      router.push("/");
-      return;
-    }
+
     if (onOpenContact) {
       onOpenContact();
+      return;
+    }
+
+    if (pathname !== "/") {
+      router.push("/");
     }
   };
 
@@ -100,9 +99,7 @@ export function Navbar({ onOpenContact }: NavbarProps) {
           <Button
             variant={isScrolled ? "secondary" : "outlineWhite"}
             label="Falar com especialista"
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={handleSimulateClick}
             size="md"
             className={styles.desktopButton}
           />
@@ -184,9 +181,7 @@ export function Navbar({ onOpenContact }: NavbarProps) {
                   <Button
                     variant={isScrolled ? "secondary" : "secondary"}
                     label="Falar com especialista"
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    onClick={handleSimulateClick}
                     size="md"
                     width={{ base: "100%" }}
                   />
@@ -199,4 +194,3 @@ export function Navbar({ onOpenContact }: NavbarProps) {
     </nav>
   );
 }
-

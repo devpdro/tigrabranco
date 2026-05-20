@@ -13,10 +13,7 @@ interface HeaderProps {
   onOpenContact?: () => void;
 }
 
-export function Header({}: HeaderProps) {
-  const whatsappLink =
-    "https://wa.me/5511914924000?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20Tigre%20Branco%20e%20gostaria%20de%20receber%20assist%C3%AAncia%20de%20um%20especialista.";
-
+export function Header({ onOpenContact }: HeaderProps) {
   // Variantes de animação
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,10 +87,8 @@ export function Header({}: HeaderProps) {
             >
               <Button
                 variant="outlineWhite"
-                label="Falar com especialista"
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                label="Simular agora"
+                onClick={onOpenContact}
                 width={{ base: "100%", sm: "auto" }}
               />
             </motion.div>

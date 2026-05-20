@@ -25,7 +25,7 @@ export default function About() {
         <ScrollRevealText />
         <ServicesGrid />
         <Founder />
-        <DualCta />
+        <DualCta onOpenContact={() => setIsDrawerOpen(true)} />
       </main>
       <Footer openContact={() => setIsDrawerOpen(true)} />
       <Contact isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />

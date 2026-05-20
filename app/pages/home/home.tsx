@@ -8,7 +8,6 @@ import {
   Business,
   FeedbackLoop,
   Contact,
-  WhatsappButton,
   Workflow,
   Header,
   Manifesto,
@@ -41,10 +40,10 @@ export default function Home() {
       <Business />
 
       {/* 5. DUPLO CTA - Dois caminhos de conversão */}
-      <DualCta />
+      <DualCta onOpenContact={() => setIsDrawerOpen(true)} />
 
       {/* 6b. PRODUTO - SECaaS */}
-      <Secaas />
+      <Secaas onOpenContact={() => setIsDrawerOpen(true)} />
 
       {/* 5. COMO FUNCIONA - Processo simplificado */}
       <Workflow />
@@ -53,10 +52,10 @@ export default function Home() {
       <ProcessTimeline onContactClick={() => setIsDrawerOpen(true)} />
       
       {/* 7. MENTORIA - Apresentação do produto */}
-      <Mentoring />
+      <Mentoring onOpenContact={() => setIsDrawerOpen(true)} />
 
       {/* 8. METODOLOGIA - 4 etapas da mentoria */}
-      <FeedbackLoop />
+      <FeedbackLoop onOpenContact={() => setIsDrawerOpen(true)} />
       
       {/* 9. DIFERENCIAL - Suporte 24/7 */}
       <Support />
@@ -71,7 +70,6 @@ export default function Home() {
       <Footer openContact={() => setIsDrawerOpen(true)} />
       
       <Contact isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
-      <WhatsappButton />
     </>
   );
 }
