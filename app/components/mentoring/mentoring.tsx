@@ -20,10 +20,6 @@ const stats = [
     value: "5x",
     desc: "de crescimento médio de carteira nos primeiros 12 meses de operação.",
   },
-  {
-    value: "R$3M+",
-    desc: "em crédito estruturado pelos primeiros mentorados na plataforma Tigre Branco Pay.",
-  },
 ];
 
 interface MentoringProps {

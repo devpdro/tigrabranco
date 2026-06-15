@@ -102,7 +102,7 @@ export function Secaas({ onOpenContact }: SecaasProps) {
 
             <div className={S.example}>
               <p>
-                Uma fintech que gera <strong>R$10M/mês em crédito</strong> pode
+                Uma fintech que gera <strong>R$30M/mês em crédito</strong> pode
                 transformar contratos em lastro, emitir debêntures e financiar a
                 própria originação usando a infraestrutura da Confia Capital.
               </p>
