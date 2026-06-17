@@ -81,6 +81,9 @@ export function Navbar({ onOpenContact }: NavbarProps) {
             >
               Como funciona
             </span>
+            <Link href="/simulador-ccb" className={styles.navLink}>
+              Simulador CCB
+            </Link>
             <Link href="/sobre-nos" className={styles.navLink}>
               A empresa
             </Link>
@@ -162,6 +165,13 @@ export function Navbar({ onOpenContact }: NavbarProps) {
                   >
                     Como funciona
                   </span>
+                  <Link
+                    href="/simulador-ccb"
+                    className={styles.mobileNavLink}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Simulador CCB
+                  </Link>
                   <Link
                     href="/sobre-nos"
                     className={styles.mobileNavLink}
