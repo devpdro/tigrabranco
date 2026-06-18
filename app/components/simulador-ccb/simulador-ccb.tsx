@@ -383,7 +383,7 @@ export function SimuladorCcb() {
               text="Liquidação antecipada"
               strokeColor="#02a657"
               strokeWidth={4}
-              underlinePath="M 0,10 Q 60,0 120,10 Q 180,20 240,10"
+              underlinePath="M 0,10 Q 60,22 120,10 Q 180,-2 240,10"
               underlineHoverPath="M 0,10 Q 60,20 120,10 Q 180,0 240,10"
               underlineDuration={1.5}
             />{" "}
