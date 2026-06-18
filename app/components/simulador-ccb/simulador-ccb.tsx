@@ -29,6 +29,7 @@ import {
   type ParsedCCB,
   type ScheduleRow,
 } from "./utils";
+import { AnimatedText } from "@/app/components/ui/animated-underline-text";
 import styles from "./simulador-ccb.module.scss";
 
 type ImportStatus = "" | "ok" | "err" | "load" | "dirty";
@@ -378,7 +379,15 @@ export function SimuladorCcb() {
             {eyebrow}
           </motion.span>
           <motion.h1 variants={fadeIn} className={styles.title}>
-            Liquidação antecipada <em>&amp; saldo devedor</em>
+            <AnimatedText
+              text="Liquidação antecipada"
+              strokeColor="#02a657"
+              strokeWidth={4}
+              underlinePath="M 0,10 Q 60,0 120,10 Q 180,20 240,10"
+              underlineHoverPath="M 0,10 Q 60,20 120,10 Q 180,0 240,10"
+              underlineDuration={1.5}
+            />{" "}
+            <em>&amp; saldo devedor</em>
           </motion.h1>
           <motion.p variants={fadeIn} className={styles.subtitle}>
             Importe a CCB em PDF ou edite qualquer campo: a tabela recalcula
