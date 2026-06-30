@@ -56,12 +56,12 @@ export function Business() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <Link href="/simulador-ccb" className={S.cardLink}>
+            <Link href="/calculadoras" className={S.cardLink}>
               <div className={S.visualPlaceholder}>
                 <div className={S.simulatorPreview}>
                   <div className={S.simHeader}>
                     <Calculator size={20} strokeWidth={1.6} />
-                    <span>Simulador CCB</span>
+                    <span>Calculadoras CCB</span>
                   </div>
                   <div className={S.simRow}>
                     <span className={S.simLabel}>Valor financiado</span>
@@ -92,7 +92,7 @@ export function Business() {
                   parcelas com a precisão do Sistema Price.
                 </p>
                 <span className={S.cardCta}>
-                  Abrir simulador <ArrowRight size={14} strokeWidth={2.2} />
+                  Abrir calculadoras <ArrowRight size={14} strokeWidth={2.2} />
                 </span>
               </div>
             </Link>
